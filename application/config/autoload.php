@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |  $autoload['packages'] = array(APPPATH.'third_party', '/usr/local/shared');
 |
 */
-$autoload['packages'] = array();
+$autoload['packages'] = array('');
 
 /*
 | -------------------------------------------------------------------
@@ -89,7 +89,9 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array();
+
+// Allow use base_url() method to work whit routes
+$autoload['helper'] = array('url');
 
 /*
 | -------------------------------------------------------------------
