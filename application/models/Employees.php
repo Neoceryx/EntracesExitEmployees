@@ -14,6 +14,12 @@ class Employees extends CI_Model
 
   }
 
+  // public function GetExitEntrances()
+  // {
+  //   return $this->db->query('SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(EntraceRegister,Exitregister) AS 'Time Needed'
+  //   FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)');
+  // }
+
 }
 
 
