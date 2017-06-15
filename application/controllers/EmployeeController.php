@@ -17,7 +17,7 @@ class EmployeeController extends CI_Controller
 
   }
 
-  public function EntrancesExitReport($value='')
+  public function EntrancesExitReport()
   {
 
     // Build the query
@@ -41,6 +41,17 @@ class EmployeeController extends CI_Controller
 
     }
 
+  }
+
+  public function RegisterEntrance()
+  {
+
+    // Recibe EMPNUM val from ajax call
+    $EmpNum=$this->input->post('EMPNUM');
+
+    
+
+    echo $EmpNum;
 
   }
 
