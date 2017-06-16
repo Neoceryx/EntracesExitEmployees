@@ -50,36 +50,78 @@ class EmployeeController extends CI_Controller
     $EmpNum=$this->input->post('EMPNUM');
 
     // Get the current date and time. Need Specify time zome on config file.
-    $EntranceDate=date('Y-m-d h:i:s');
+    $CurrentDate=date('Y-m-d h:i:s');
 
     // varibles
     $EmpId="";
 
+    // Decision Variable
+    $MinRegEntrance=0;
+
+    // Constant
+    define("HASENTRANCE",1);
+
     //  Display the info
-    // echo $EmpNum." :: ".$EntranceDate;
+    // echo $EmpNum." :: ".$CurrentDate;
 
-    // Get Employee id by NumEmploye. Build the query.
-    $this->db->select('Id');
-    $this->db->from('Employees');
-    $this->db->where('NoEmploye', $EmpNum);
-    $query = $this->db->get();
 
-    // Display Info
-    foreach ($query->result() as $row)
-    {
+    { /* Region Get Employee id by NumEmploye. */
 
-      // Store the result in the Empid variable
-      $EmpId=$row->Id;
+      //  Build the query.
+      $this->db->select('Id');
+      $this->db->from('Employees');
+      $this->db->where('NoEmploye', $EmpNum);
 
-    }
+      // Query Executes.
+      $query = $this->db->get();
+
+      // Display Info
+      foreach ($query->result() as $row)
+      {
+
+        // Store the result in the Empid variable
+        $EmpId=$row->Id;
+
+      }
+
+    } /* End Region */
+
 
     { /* Region Register Entrance */
 
-      // Create array whit the info to will be inserted. Send Null value to the end
-      $Data = array('Employees_Id' => $EmpId, 'EntraceRegister'=>$EntranceDate, 'Exitregister'=>null);
+      // Validate that an Employee not Register two time Entrances
+      $HasEntrance=$this->db->query("SELECT COUNT(*) AS Entrances from shiftentracesexits
+      WHERE (Employees_Id=$EmpId AND Exitregister IS NULL);");
 
-      // Build the query. TableName/FieldsArray
-      $this->db->insert('shiftentracesexits',$Data);
+      // Display Info
+      foreach ($HasEntrance->result() as $row) {
+
+        // Store the repeats entrances.
+        $MinRegEntrance = $row->Entrances;
+
+      }
+
+      // Validate Entrances registers
+      if ($MinRegEntrance >= HASENTRANCE ) {
+
+        // Create array fiels to will be Updated
+        $InfoUpdate = array('Exitregister' => $CurrentDate );
+
+        // Build the query
+        $this->db->where("Employees_Id",$EmpId);
+        $this->db->update("shiftentracesexits", $InfoUpdate);
+
+      }else {
+
+        // Create array whit the info to will be inserted. Send Null value to the end
+        $Data = array('Employees_Id' => $EmpId, 'EntraceRegister'=>$CurrentDate, 'Exitregister'=>null);
+
+        // Build the query. TableName/FieldsArray. Insert new Register to ShiftEnrance table
+        $this->db->insert('shiftentracesexits',$Data);
+
+      }
+      // End Validations
+
 
     } /*  End Region */
 
