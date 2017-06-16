@@ -3,29 +3,7 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
-  { /* Region Entrances and Exit Table */
-
-    // Dispplay the Entrances and Extis on the mindexview
-    $.ajax({
-      type:"POST",
-
-      // Main server URL + ControllerName/Method
-      url:URL+"EmployeeController/EntrancesExitReport",
-      data:{},
-      success:function (data) {
-
-        // Display Backend results on the dom
-        $(".js_ShiftResult").html(data);
-
-      },
-      error:function () {
-
-        alert("An error ocurred");
-
-      }
-    })
-
-  } /* End Region */
+  GetCurrentEntrancesExits();
 
 
   { /* Region Decode Codes*/
@@ -46,38 +24,44 @@ $(document).ready(function () {
 
           // #.... Call Back code
 
-          // Get Employee Number
-          var EmployeNumbr=Content;
+          { /* Region ReisterEntranceExit */
 
-          $.ajax({
-            type:"POST",
-            url:URL+"EmployeeController/RegisterEntrance",
-            data:{EMPNUM:EmployeNumbr},
-            success:function (data) {
+            // Get Employee Number
+            var EmployeNumbr=Content;
 
-              // Display the backend result on the dom
-              // alert(data);
+            $.ajax({
+              type:"POST",
+              url:URL+"EmployeeController/RegisterEntrance",
+              data:{EMPNUM:EmployeNumbr},
+              success:function (data) {
 
-              // Append register to the table Or Refresh the Entrances table
-              $(".js_ShiftResult").append("<tr><td>"+ EmployeNumbr +"</td></tr>")
+                // Display the backend result on the dom
+                // alert(data);
 
-              // Clear decoder result after one sec
-              setTimeout(function () {
 
-                // Clear the decoder val element
-                $('#js_Coderesult').text('');
+                // Update the Extrances and Extis regitser table
+                GetCurrentEntrancesExits()
 
-              }, 1000);
+                // Clear decoder result after one sec
+                setTimeout(function () {
 
-            },
-            error:function () {
-              alert("An error Ocurred");
-            }
+                  // Clear the decoder val element
+                  $('#js_Coderesult').text('');
 
-          });
-          // End ajax call
+                }, 1000);
+
+              },
+              error:function () {
+                alert("An error Ocurred");
+              }
+
+            });
+            // End ajax call
+
+          } /* End Region */
 
         }
+        // End resultFunction
 
       };
 
@@ -112,4 +96,30 @@ $(document).ready(function () {
     alert("Change");
   });
 
+  function GetCurrentEntrancesExits() {
+
+    // Dispplay the Entrances and Extis on the mindexview
+    $.ajax({
+        type:"POST",
+
+        // Main server URL + ControllerName/Method
+        url:URL+"EmployeeController/EntrancesExitReport",
+        data:{},
+        success:function (data) {
+
+          // Display Backend results on the dom
+          $(".js_ShiftResult").html(data);
+
+        },
+        error:function () {
+
+          alert("An error ocurred");
+
+        }
+      })
+
+  }
+ // End
+
 });
+// End Scope
