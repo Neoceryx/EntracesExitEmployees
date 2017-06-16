@@ -59,3 +59,18 @@ select TIMEDIFF(EntraceRegister,Exitregister) from ShiftEntracesExits;
 -- Display the Entrances and Exits Report
 select  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(EntraceRegister,Exitregister) as 'Time Needed'
 from  ShiftEntracesExits inner join Employees on (Employees_Id = Id);
+
+describe Employees;
+
+-- Get only date parte from a Datetime field
+select DATE(now());
+
+-- Select Only time part from a DateTime Field
+select TIME(now());
+
+-- Get the Entrances and Extis whit the current Date
+select  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(EntraceRegister,Exitregister) as 'Time Needed'
+from  ShiftEntracesExits inner join Employees on (Employees_Id = Id)
+where(DATE(ShiftEntracesExits.EntraceRegister) = DATE(now()) );
+
+select * from Employees;

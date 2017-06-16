@@ -49,7 +49,6 @@ class EmployeeController extends CI_Controller
     // Recibe EMPNUM val from ajax call
     $EmpNum=$this->input->post('EMPNUM');
 
-    
 
     echo $EmpNum;
 

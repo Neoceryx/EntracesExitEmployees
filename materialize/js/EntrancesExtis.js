@@ -3,25 +3,30 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
-  // Dispplay the Entrances and Extis on the mindexview
-  $.ajax({
-    type:"POST",
+  { /* Region Entrances and Exit Table */
 
-    // Main server URL + ControllerName/Method
-    url:URL+"EmployeeController/EntrancesExitReport",
-    data:{},
-    success:function (data) {
+    // Dispplay the Entrances and Extis on the mindexview
+    $.ajax({
+      type:"POST",
 
-      // Display Backend results on the dom
-      $(".js_ShiftResult").html(data);
+      // Main server URL + ControllerName/Method
+      url:URL+"EmployeeController/EntrancesExitReport",
+      data:{},
+      success:function (data) {
 
-    },
-    error:function () {
+        // Display Backend results on the dom
+        $(".js_ShiftResult").html(data);
 
-      alert("An error ocurred");
+      },
+      error:function () {
 
-    }
-  })
+        alert("An error ocurred");
+
+      }
+    })
+
+  } /* End Region */
+
 
   { /* Region Decode Codes*/
 
@@ -56,6 +61,7 @@ $(document).ready(function () {
               // Append register to the table Or Refresh the Entrances table
               $(".js_ShiftResult").append("<tr><td>"+ EmployeNumbr +"</td></tr>")
 
+              // Clear decoder result after one sec
               setTimeout(function () {
 
                 // Clear the decoder val element
