@@ -51,8 +51,9 @@ $(document).ready(function () {
                 }, 1000);
 
               },
-              error:function () {
+              error:function (hrx) {
                 alert("An error Ocurred");
+                console.log(hrx.responseText);
               }
 
             });
