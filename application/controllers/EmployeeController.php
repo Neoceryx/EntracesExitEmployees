@@ -75,11 +75,11 @@ class EmployeeController extends CI_Controller
 
     { /* Region Register Entrance */
 
-      // Create array whit the info to will be inserted
-      $Data = array('Employees_Id' => $EmpId, 'EntraceRegister'=>$EntranceDate, 'Exitregister'=>'');
+      // Create array whit the info to will be inserted. Send Null value to the end
+      $Data = array('Employees_Id' => $EmpId, 'EntraceRegister'=>$EntranceDate, 'Exitregister'=>null);
 
       // Build the query. TableName/FieldsArray
-      $this->db->insert('shiftentracesexits',$Data);   
+      $this->db->insert('shiftentracesexits',$Data);
 
     } /*  End Region */
 
