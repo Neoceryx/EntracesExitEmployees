@@ -49,12 +49,42 @@ class EmployeeController extends CI_Controller
     // Recibe EMPNUM val from ajax call
     $EmpNum=$this->input->post('EMPNUM');
 
+    // Get the current date and time. Need Specify time zome on config file.
+    $EntranceDate=date('Y-m-d h:i:s');
 
-    echo $EmpNum;
+    // varibles
+    $EmpId="";
+
+    //  Display the info
+    // echo $EmpNum." :: ".$EntranceDate;
+
+    // Get Employee id by NumEmploye. Build the query.
+    $this->db->select('Id');
+    $this->db->from('Employees');
+    $this->db->where('NoEmploye', $EmpNum);
+    $query = $this->db->get();
+
+    // Display Info
+    foreach ($query->result() as $row)
+    {
+
+      // Store the result in the Empid variable
+      $EmpId=$row->Id;
+
+    }
+
+    { /* Region Register Entrance */
+
+      // Create array whit the info to will be inserted
+      $Data = array('Employees_Id' => $EmpId, 'EntraceRegister'=>$EntranceDate, 'Exitregister'=>'');
+
+      // Build the query. TableName/FieldsArray
+      $this->db->insert('shiftentracesexits',$Data);   
+
+    } /*  End Region */
+
 
   }
-
-
 
 }
 
