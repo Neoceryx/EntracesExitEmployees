@@ -88,3 +88,13 @@ describe shiftentracesexits;
 update shiftentracesexits
 set Exitregister = now()
 where (Employees_Id = 2 and Exitregister is null);
+
+
+select * from shiftentracesexits
+where (DATE(EntraceRegister) = Date(now()));
+
+DELETE from shiftentracesexits
+where ( Exitregister is null and Employees_Id = 1 );
+
+select * from shiftentracesexits
+where ( Exitregister is null )
