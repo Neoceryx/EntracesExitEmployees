@@ -74,3 +74,17 @@ from  ShiftEntracesExits inner join Employees on (Employees_Id = Id)
 where(DATE(ShiftEntracesExits.EntraceRegister) = DATE(now()) );
 
 select * from Employees;
+
+-- Get the Employe Id by NoEmployee
+select Id from Employees where(NoEmploye = 12345678);
+
+-- Add Employee Enrance
+insert into shiftentracesexits values (1,Now(), default);
+
+select * from shiftentracesexits;
+describe shiftentracesexits;
+
+-- Add Employe exit
+update shiftentracesexits
+set Exitregister = now()
+where (Employees_Id = 2 and Exitregister is null);
