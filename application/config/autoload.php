@@ -58,7 +58,9 @@ $autoload['packages'] = array('');
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array();
+
+// Allow use DataBases
+$autoload['libraries'] = array('database');
 
 /*
 | -------------------------------------------------------------------

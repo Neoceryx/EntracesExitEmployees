@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo</title>
+    </head>
+    <body>
+    	<h3>Simple initalization with default settings</h3>
+        <hr>
+        <canvas></canvas>
+
+        <!-- Start Camera options -->
+        <button id="js_Stop" type="button" name="button">Stop</button>
+        <button id="js_Play"type="button" name="button">Play</button>
+        <button id="js_Pause" type="button" name="button">Pause</button>
+
+
+        <hr>
+        <ul></ul>
+
+        <!-- Jquery  -->
+		    <script type="text/javascript" src="js/jquery.js"></script>
+
+        <!-- Code decoder js files -->
+        <script type="text/javascript" src="js/qrcodelib.js"></script>
+        <script type="text/javascript" src="js/webcodecamjquery.js"></script>
+
+        <script type="text/javascript">
+        $(document).ready(function () {
+
+          // Create the objte to will return the info from the code decoded
+          var arg = {
+
+            resultFunction: function(result) {
+
+              // decode code info
+              var Format=result.format;
+
+              // Code type QR or Bar Code
+              var Codetype=result.code;
+
+              // it place the decode val and the code type on the dom
+              $('body').append( $('<li>' + Format + ': ' + Codetype + '</li>'));
+
+              }
+
+          };
+
+          // Turn on the web camera and Send Arg to will be decode
+          $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
+
+          // Turn Off.
+          $("#js_Stop").click(function () {
+
+            // Turn Off camera
+            $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.stop();
+
+          });
+
+          $("#js_Play").click(function () {
+
+            // Turn on the web camera and Send Arg to will be decode
+            $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
+
+          });
+
+          $("#js_Pause").click(function () {
+
+            // Puse the Video recoder
+            $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.pause();
+
+          });
+
+        })
+        </script>
+
+    </body>
+</html>
