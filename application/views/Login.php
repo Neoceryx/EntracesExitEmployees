@@ -79,5 +79,7 @@
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
 
+  <!-- Aditional Js files -->
+  <script type="text/javascript" src="<?=base_url('materialize\js\Login.js')?>"></script>
 
 </html>
