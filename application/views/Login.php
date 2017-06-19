@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="input-field col s12">
-                      <input id="js_Password" type="text" name="" value="">
+                      <input id="js_Password" type="password" name="" value="">
                       <label for="js_Password">Password</label>
                     </div>
 
@@ -58,6 +58,9 @@
                 </form>
               </div>
               <!-- End login form -->
+
+              <!-- Display backend result -->
+              <div class="Js_LgnResult"></div>
 
             </div>
           </div>
