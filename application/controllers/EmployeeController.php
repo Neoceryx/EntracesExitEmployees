@@ -21,7 +21,7 @@ class EmployeeController extends CI_Controller
   {
 
     // Build the query
-    $Query =$this->db->query("SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(EntraceRegister,Exitregister) AS 'TimeNeeded'
+    $Query =$this->db->query("SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(Exitregister,EntraceRegister) AS 'TimeNeeded'
     FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)
     WHERE(DATE(ShiftEntracesExits.EntraceRegister) = DATE(now()) )");
 
@@ -51,7 +51,7 @@ class EmployeeController extends CI_Controller
     $EmpNum=$this->input->post('EMPNUM');
 
     // Get the current date and time. Need Specify time zome on config file.
-    $CurrentDate=date('Y-m-d h:i:s');
+    $CurrentDate=date('Y-m-d H:i:s');
 
     // varibles
     $EmpId="";

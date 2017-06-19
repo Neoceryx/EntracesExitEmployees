@@ -14,6 +14,7 @@ class LoginController extends CI_Controller
 
     // Load the Login Form
     $this->load->view('Login');
+    
   }
 
 
