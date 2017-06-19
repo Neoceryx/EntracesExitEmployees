@@ -7,6 +7,22 @@
   </head>
   <body>
 
+    <!-- Start NavBar -->
+    <nav>
+      <div class="nav-wrapper blue lighten-2">
+
+        <a href="<?=base_url();?>" class="brand-logo">HOME</a>
+
+        <!-- Start NavBar Links -->
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="<?=site_url('LoginController/index')?>">Login</a></li>
+        </ul>
+        <!-- End Navbar Links -->
+
+      </div>
+    </nav>
+    <!-- End Navbar -->
+
     <h3 class="center-align">Shift Entrances and exits</h3>
     <!-- <a href="<?=site_url('EmployeeController/test/123')?>">TesMethod</a> -->
 

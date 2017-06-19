@@ -17,12 +17,13 @@ class EmployeeController extends CI_Controller
 
   }
 
-  public function EntrancesExitReport()
+  public function CurrentEntrancesExitReport()
   {
 
     // Build the query
     $Query =$this->db->query("SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(EntraceRegister,Exitregister) AS 'TimeNeeded'
-    FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)");
+    FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)
+    WHERE(DATE(ShiftEntracesExits.EntraceRegister) = DATE(now()) )");
 
     // Store info in array
     // $Data = array('Report' => $Query );

@@ -3,10 +3,10 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
+  // Display the Entrances and Exits Employees
   GetCurrentEntrancesExits();
 
-
-  { /* Region Decode Codes*/
+  { /* Region Decode Codes Plugin Methods */
 
       // Create the objte to will return the info from the code decoded. Event
       var arg = {
@@ -52,7 +52,7 @@ $(document).ready(function () {
 
               },
               error:function (hrx) {
-                alert("An error Ocurred");
+                alert("An error Ocurred. "+ hrx.responseText);
                 console.log(hrx.responseText);
               }
 
@@ -83,7 +83,7 @@ $(document).ready(function () {
         $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
 
       });
-      //
+
       // $("#js_Pause").click(function () {
       //
       //   // Puse the Video recoder
@@ -104,7 +104,7 @@ $(document).ready(function () {
         type:"POST",
 
         // Main server URL + ControllerName/Method
-        url:URL+"EmployeeController/EntrancesExitReport",
+        url:URL+"EmployeeController/CurrentEntrancesExitReport",
         data:{},
         success:function (data) {
 
@@ -112,9 +112,10 @@ $(document).ready(function () {
           $(".js_ShiftResult").html(data);
 
         },
-        error:function () {
+        error:function (xhr) {
 
           alert("An error ocurred");
+          console.log(xhr.responseText);
 
         }
       })
