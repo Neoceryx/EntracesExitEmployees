@@ -9,6 +9,9 @@ class LoginController extends CI_Controller
   public function index()
   {
 
+    // destroy session values
+    $this->session->sess_destroy();
+
     // Load  the css filter_list
     $this->load->view('Template\css');
 
