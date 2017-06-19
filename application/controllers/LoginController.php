@@ -14,7 +14,22 @@ class LoginController extends CI_Controller
 
     // Load the Login Form
     $this->load->view('Login');
-    
+
+  }
+
+  public function Login()
+  {
+
+    // Recibe EmployeNumber form ajaxCall
+    $EmplNumber=$this->input->post('EMPNUM');
+
+    // Recibe Employee Password
+    $EmpPass=$this->input->post('PASS');
+
+    // Display values
+    echo $EmplNumber." :: ". $EmpPass;
+
+
   }
 
 
