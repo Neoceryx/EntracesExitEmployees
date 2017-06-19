@@ -60,7 +60,7 @@ $autoload['packages'] = array('');
 */
 
 // Allow use DataBases
-$autoload['libraries'] = array('database');
+$autoload['libraries'] = array('database', 'session');
 
 /*
 | -------------------------------------------------------------------

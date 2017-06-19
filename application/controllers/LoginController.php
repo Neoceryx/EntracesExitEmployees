@@ -20,6 +20,11 @@ class LoginController extends CI_Controller
   public function Login()
   {
 
+    //  <Summary>
+    //  Is necesari add session library on autoload file
+    //  And create encription key on config file.
+    //  </Summary>
+
     // Recibe EmployeNumber form ajaxCall
     $EmplNumber=$this->input->post('EMPNUM');
 
@@ -27,8 +32,20 @@ class LoginController extends CI_Controller
     $EmpPass=$this->input->post('PASS');
 
     // Display values
-    echo $EmplNumber." :: ". $EmpPass;
+    // echo $EmplNumber." :: ". $EmpPass;
 
+    // Store the vaules for the sesion variable. only can stroe 3 varibles
+    $EmpSession = array(
+      'NoEmploye' =>$EmplNumber,
+      'Id' => 0,
+      'login'=>true, // Says if the empl is login
+   );
+
+  //  Build the session
+   $this->session->set_userdata($EmpSession);
+
+  //  Allows access to the propieties array session
+   echo $this->session->userdata('NoEmploye');
 
   }
 
