@@ -97,4 +97,15 @@ DELETE from shiftentracesexits
 where ( Exitregister is null and Employees_Id = 1 );
 
 select * from shiftentracesexits
-where ( Exitregister is null )
+where ( Exitregister is null );
+
+-- ===================================== Login =====================================
+
+-- Get User role in the login
+SELECT NameEmp, FstName,EmployeesRoles_Id, employeesroles.Description FROM employees
+inner join employeesroles on (EmployeesRoles_Id = employeesroles.Id)
+where (NoEmploye = '12345678' and Pass='pass');
+
+describe employees;
+select * from employees;
+-- ===================================== Login =====================================
