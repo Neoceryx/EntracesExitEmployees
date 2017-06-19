@@ -106,6 +106,12 @@ SELECT NameEmp, FstName,EmployeesRoles_Id, employeesroles.Description FROM emplo
 inner join employeesroles on (EmployeesRoles_Id = employeesroles.Id)
 where (NoEmploye = '12345678' and Pass='pass');
 
+-- Validate Employe exits
+select count(*) from employees
+where (NoEmploye = '12345678' and Pass='pass');
+
+-- if retrun 1 then employee exists esle employee don't exists
+
 describe employees;
 select * from employees;
 -- ===================================== Login =====================================
