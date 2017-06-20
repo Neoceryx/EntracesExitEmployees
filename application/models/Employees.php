@@ -14,8 +14,6 @@ class Employees extends CI_Model
 
   }
 
-
-
   public function LoginEmp($EmplNumber="",$EmpPass="")
   {
 
@@ -38,6 +36,19 @@ class Employees extends CI_Model
 
   }
   // End LoginEmp
+
+  public function AdminInfo($EmpNumbr='')
+  {
+
+    //  Build the query.
+    $this->db->select('Id,NameEmp,EmployeesRoles_Id');
+    $this->db->from('Employees');
+    $this->db->where('NoEmploye', $EmpNumbr);
+
+    // Query Executes
+    return $this->db->get();
+
+  }
 
 }
 
