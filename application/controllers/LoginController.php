@@ -99,16 +99,14 @@ class LoginController extends CI_Controller
     // Get Employe Number from Session variable
     $EmpNumbr=$this->session->userdata('NoEmploye');
 
-    //  Build the query.
-    $this->db->select('Id,NameEmp');
-    $this->db->from('Employees');
-    $this->db->where('NoEmploye', $EmpNumbr);
+    // Loads the model
+    $this->load->model('employees');
 
-    // Query Executes.
-    $query = $this->db->get();
+    // Get query Result
+    $Result=$this->employees->AdminInfo($EmpNumbr);
 
     // stores Query data in arraay
-    $Data = array('Employee' => $query );
+    $Data = array('Employee' => $Result );
 
     // Retrun Admin DashBoard view. Pass Data to te view
     $this->load->view('Admin\Index.php',$Data);
