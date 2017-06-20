@@ -1,6 +1,10 @@
 $(document).ready(function () {
 
-  alert("Hi from Admin/Index.js");
+  // Set the main path on the server
+  let URL="http://localhost/EntracesExitEmployees/index.php/"
+
+  alert("Hello from Admin/Index.js file");
+
 
 });
 // End Scope

@@ -17,15 +17,16 @@
           <li><a href="#">Entrances Report</a></li>
 
           <!-- Validate If the user is login -->
-          <?php if ($this->session->userdata('login') ) { ?>
+          <?php if ($this->session->userdata('login') ) { $SesValidate=$this->session->userdata('login') ?>
 
             <li><a href="<?=site_url('LoginController/LogOut')?>">Log Out</a></li>
 
-          <?php } else { ?>
+          <?php } else {
 
-            <!-- <p>asdasd</p> -->
-
-          <?php } ?>
+            // Redirect User to the login Form
+            header('location:'.site_url("LoginController/index"));
+            
+          } ?>
           <!-- End Pass Session Variable -->
 
         </ul>
@@ -36,7 +37,7 @@
     <!-- End NavBar -->
 
 
-    <h3 class="center-align">
+    <h3 id="js_Sess" class="center-align" data-sesion="<?= $SesValidate?>">
       Welcome
 
       <?php foreach ($Employee->result() as $employe) {?>
