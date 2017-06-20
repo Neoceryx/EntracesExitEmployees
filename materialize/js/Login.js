@@ -17,15 +17,31 @@ $(document).ready(function () {
       type:"POST",
       url:URL+"LoginController/Login",
       data:{ EMPNUM:EmpNumber, PASS:Password },
-      success:function (data) {debugger
+      success:function (data) {
 
         // Display backend result on the DOM
-        // $(".Js_LgnResult").html(data);
-        window.location.href = "http://stackoverflow.com";
+        $(".Js_LgnResult").html(data).hide();
+
+        // Get Login val. Bolean. Parse string to a number
+        var LoginVal= parseInt($(".Js_LgnResult").text());
+
+        // Validate login Val
+        if (LoginVal == 1) {
+
+          // Redirect User to the Login view
+          window.location.href = URL+"LoginController/AdminPanel";
+
+        }else {
+
+          alert("Please Verify Employee Information");
+
+        }
 
       },
       error:function (xhr) {
+
         alert("Error: " +xhr.responseText);
+        
       }
 
     });
