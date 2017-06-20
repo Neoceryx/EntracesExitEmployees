@@ -17,7 +17,7 @@ $(document).ready(function () {
       type:"POST",
       url:URL+"LoginController/Login",
       data:{ EMPNUM:EmpNumber, PASS:Password },
-      success:function (data) {
+      success:function (data) {debugger
 
         // Display backend result on the DOM
         $(".Js_LgnResult").html(data);

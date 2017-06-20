@@ -37,20 +37,50 @@ class LoginController extends CI_Controller
     // Display values
     // echo $EmplNumber." :: ". $EmpPass;
 
-    // Store the vaules for the sesion variable. only can stroe 3 varibles
-    $EmpSession = array(
-      'NoEmploye' =>$EmplNumber,
-      'Id' => 0,
-      'login'=>true, // Says if the empl is login
-   );
+    // Loads the model
+    $this->load->model('employees');
 
-  //  Build the session
-   $this->session->set_userdata($EmpSession);
+    // Acces Method from Model
+    $Row=$this->employees->LoginEmp($EmplNumber, $EmpPass);
 
-  //  Allows access to the propieties array session
-   echo $this->session->userdata('NoEmploye');
+    // Debugger
+    // var_dump($Row);
+
+    // Validate Users Data
+    if ($Row != null) {
+
+      if ($Row->Pass == $EmpPass ) {
+
+          // Store the vaules for the sesion variable. only can stroe 3 varibles
+          $EmpSession = array(
+            'NoEmploye' =>$EmplNumber,
+            'Id' => 0,
+            'login'=>true, // Says if the empl is login
+            );
+
+          //  Build the session
+          $this->session->set_userdata($EmpSession);
+
+          //  Allows access to the propieties array session
+          echo $this->session->userdata('NoEmploye');
+
+          // destroy session values
+          // $this->session->sess_destroy();
+
+      }else {
+        header('location:'.base_url());
+      }
+
+    }else {
+
+      echo "Aqui para";
+
+    }
+
+
 
   }
+  // End Login Method
 
 
 }
