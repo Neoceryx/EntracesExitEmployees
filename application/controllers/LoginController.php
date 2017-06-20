@@ -72,7 +72,7 @@ class LoginController extends CI_Controller
 
   }
   // End Login Method
-  
+
   // Close User Session
   public function LogOut()
   {
@@ -83,7 +83,7 @@ class LoginController extends CI_Controller
     header('location:'.base_url());
 
   }
-  
+
   // Redirect user to Admin Dasboard
   public function AdminPanel()
   {

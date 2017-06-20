@@ -50,9 +50,18 @@ class Employees extends CI_Model
 
   }
 
+  public function GetEntrancesReport()
+  {
+
+    // Build the query
+    $Query = $this->db->query("SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(Exitregister,EntraceRegister) AS 'TimeNeeded'
+    FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)");
+
+    // Execute the query
+    return $Query;
+
+  }
+
 }
-
-
-
 
 ?>

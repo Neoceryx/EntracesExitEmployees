@@ -129,6 +129,33 @@ class EmployeeController extends CI_Controller
 
   }
 
+  public function EntranceReport($value='')
+  {
+
+    // Load Model
+    $this->load->model("employees");
+
+    $Result = $this->employees->GetEntrancesReport();
+
+    // Deugger
+    // var_dump($Result->result());
+
+    // Display DataBase Info.
+    // foreach ($Result->result() as $row) {
+    //   echo $row->FstName;
+    // }
+
+    // Store Query in array
+    $Data = array('Employee' => $Result );
+
+    // Lod class
+    $this->load->view("Template\css");
+
+    // Loads the view whit the info
+    $this->load->view("Admin\EntrancesReport",$Data );
+
+  }
+
 }
 
 

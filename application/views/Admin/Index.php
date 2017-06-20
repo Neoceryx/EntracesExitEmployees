@@ -25,7 +25,7 @@
 
             // Redirect User to the login Form
             header('location:'.site_url("LoginController/index"));
-            
+
           } ?>
           <!-- End Pass Session Variable -->
 
@@ -55,7 +55,7 @@
       <div class="col s12 m12 l12">
 
         <!-- Start Card Entrances Report -->
-        <div class="row">
+        <div  id="js_EntraceReport" class="row">
           <div class="col s12 m4 l4">
             <div class="card-panel teal">
 
