@@ -31,23 +31,6 @@
       <!-- Start Login Form Content -->
       <div class="col s12 l9">
 
-        <!-- Start Pass Session Variable -->
-
-        <!-- Validate If the user is login -->
-        <?php if ($this->session->userdata('login') ) { ?>
-
-          <p>Cerrar session</p>
-
-        <?php } else { ?>
-
-          <p>asdasd</p>
-
-        <?php } ?>
-        <!-- End Pass Session Variable -->
-
-
-
-
 
         <div class="row">
           <div class="col s12 m7 l7">
