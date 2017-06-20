@@ -12,9 +12,18 @@ $(document).ready(function () {
       var Item = $(this);
 
       // Get all Employes Names from the table
-      var EmpName=Item.find("td").eq(0).text();
+      var EmpNumbrs=Item.find("td").eq(2).text();
 
-      console.log(EmpName);
+      // Validate Search String
+      if (NoEmp != EmpNumbrs ) {
+
+        // Hide Records diferents to Search string
+        Item.hide();
+
+      }
+
+      // Display Employees Names
+      console.log(EmpNumbrs);
 
     });
 
