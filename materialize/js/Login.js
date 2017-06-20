@@ -3,6 +3,9 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
+  // Emuns
+  var Login={ISTRUE:1};
+
 
   $("#js_LoginBtn").click(function () {
 
@@ -26,7 +29,7 @@ $(document).ready(function () {
         var LoginVal= parseInt($(".Js_LgnResult").text());
 
         // Validate login Val
-        if (LoginVal == 1) {
+        if (LoginVal == Login.ISTRUE) {
 
           // Redirect User to the Login view
           window.location.href = URL+"LoginController/AdminPanel";
@@ -41,7 +44,7 @@ $(document).ready(function () {
       error:function (xhr) {
 
         alert("Error: " +xhr.responseText);
-        
+
       }
 
     });
