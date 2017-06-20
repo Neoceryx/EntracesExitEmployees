@@ -67,7 +67,11 @@ class LoginController extends CI_Controller
           // destroy session values
           // $this->session->sess_destroy();
 
+          header('Location: '.base_url());
+
       }else {
+
+        // Redirect user to the index
         header('location:'.base_url());
       }
 
@@ -76,8 +80,6 @@ class LoginController extends CI_Controller
       echo "Aqui para";
 
     }
-
-
 
   }
   // End Login Method
