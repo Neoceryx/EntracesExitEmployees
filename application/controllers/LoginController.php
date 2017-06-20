@@ -62,12 +62,7 @@ class LoginController extends CI_Controller
           $this->session->set_userdata($EmpSession);
 
           //  Allows access to the propieties array session
-          echo $this->session->userdata('NoEmploye');
-
-          // destroy session values
-          // $this->session->sess_destroy();
-
-          header('Location: '.base_url());
+          echo $this->session->userdata('login');
 
       }else {
 
@@ -77,12 +72,48 @@ class LoginController extends CI_Controller
 
     }else {
 
-      echo "Aqui para";
+      echo 0;
 
     }
 
   }
   // End Login Method
+
+  public function LogOut()
+  {
+    // destroy session values
+    $this->session->sess_destroy();
+
+    // Redirect user to the index
+    header('location:'.base_url());
+
+  }
+
+
+  public function AdminPanel()
+  {
+
+    // Load the Css Files.
+    $this->load->view('Template\css.php');
+
+    // Get Employe Number from Session variable
+    $EmpNumbr=$this->session->userdata('NoEmploye');
+
+    //  Build the query.
+    $this->db->select('Id,NameEmp');
+    $this->db->from('Employees');
+    $this->db->where('NoEmploye', $EmpNumbr);
+
+    // Query Executes.
+    $query = $this->db->get();
+
+    // stores Query data in arraay
+    $Data = array('Employee' => $query );
+
+    // Retrun Admin DashBoard view. Pass Data to te view
+    $this->load->view('Admin\Index.php',$Data);
+
+  }
 
 
 }
