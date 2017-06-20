@@ -34,9 +34,6 @@ class LoginController extends CI_Controller
     // Recibe Employee Password
     $EmpPass=$this->input->post('PASS');
 
-    // Display values
-    // echo $EmplNumber." :: ". $EmpPass;
-
     // Loads the model
     $this->load->model('employees');
 
@@ -49,6 +46,7 @@ class LoginController extends CI_Controller
     // Validate Users Data
     if ($Row != null) {
 
+      // Validate Row database table whit the ajax val recibed
       if ($Row->Pass == $EmpPass ) {
 
           // Store the vaules for the sesion variable. only can stroe 3 varibles
@@ -64,10 +62,6 @@ class LoginController extends CI_Controller
           //  Allows access to the propieties array session
           echo $this->session->userdata('login');
 
-      }else {
-
-        // Redirect user to the index
-        header('location:'.base_url());
       }
 
     }else {
@@ -78,7 +72,8 @@ class LoginController extends CI_Controller
 
   }
   // End Login Method
-
+  
+  // Close User Session
   public function LogOut()
   {
     // destroy session values
@@ -88,8 +83,8 @@ class LoginController extends CI_Controller
     header('location:'.base_url());
 
   }
-
-
+  
+  // Redirect user to Admin Dasboard
   public function AdminPanel()
   {
 
@@ -113,7 +108,5 @@ class LoginController extends CI_Controller
 
   }
 
-
 }
-
  ?>
