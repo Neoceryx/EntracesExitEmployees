@@ -20,7 +20,8 @@ $(document).ready(function () {
       success:function (data) {debugger
 
         // Display backend result on the DOM
-        $(".Js_LgnResult").html(data);
+        // $(".Js_LgnResult").html(data);
+        window.location.href = "http://stackoverflow.com";
 
       },
       error:function (xhr) {
