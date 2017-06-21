@@ -30,5 +30,17 @@ $(document).ready(function () {
 
   });
 
+  // Download Table to excel
+  $("#js_Download").click(function () {
+
+    // Export table to excel
+    $('#js_Entrances').tableExport({
+      type:'xlsx',
+      excelstyles:['border-bottom', 'border-top', 'border-left', 'border-right'],
+      fileName:"Report"
+    });
+
+  });
+
 
 });

@@ -56,7 +56,8 @@
                 </div>
 
                 <div class="input-field col s12">
-                  <button id="js_Srch" type="button" name="button" class="btn">Search</button>
+                  <button id="js_Srch" type="button" name="button" class="btn waves-effect waves-light">Search</button>
+                  <button id="js_Download" type="button" name="button" class="btn waves-effect waves-light">Download</button>
                 </div>
 
               </div>
@@ -71,7 +72,7 @@
 
 
 
-    <table>
+    <table id="js_Entrances">
 
       <thead>
         <tr>
@@ -115,6 +116,12 @@
 
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
+
+  <!-- Table Export plugin -->
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\FileSaver\FileSaver.min.js")?>"></script>
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\js-xlsx\xlsx.core.min.js")?>"></script>
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport/tableExport.js")?>"></script>
+
 
   <!-- Aditional js -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Admin\EntrancesReport.js')?>"></script>
