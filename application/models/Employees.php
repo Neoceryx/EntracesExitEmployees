@@ -18,7 +18,7 @@ class Employees extends CI_Model
   {
 
     // Build the query
-    $Query= $this->db->query("SELECT employees.Id NameEmp, FstName,EmployeesRoles_Id, employeesroles.Description, Pass FROM employees
+    $Query= $this->db->query("SELECT employees.Id EmployeesRoles_Id, employeesroles.Description, Pass FROM employees
     inner join employeesroles on (EmployeesRoles_Id = employeesroles.Id)
     where (NoEmploye = '".$EmplNumber."' and Pass='".$EmpPass."')");
 
