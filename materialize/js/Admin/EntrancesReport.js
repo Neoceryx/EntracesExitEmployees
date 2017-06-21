@@ -37,7 +37,7 @@ $(document).ready(function () {
     $('#js_Entrances').tableExport({
       type:'xlsx',
       excelstyles:['border-bottom', 'border-top', 'border-left', 'border-right'],
-      fileName:"Report"
+      fileName:"EntrancesReport"
     });
 
   });
