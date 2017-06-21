@@ -1,5 +1,9 @@
 $(document).ready(function () {
 
+  // Set the main path on the server
+  let URL="http://localhost/EntracesExitEmployees/index.php/"
+
+
   // Search Employe
   $("#js_Srch").click(function () {
 
@@ -69,6 +73,23 @@ $(document).ready(function () {
     });
 
   });
+
+  $.ajax({
+    type:"POST",
+    url:URL+"EmployeeController/GetEntrancesReportByDateRange",
+    data:{},
+    success:function (data) {
+
+      // Display Bakcend Data on the DOM
+      $("tbody").html(data);
+
+    },
+    error:function (xhr) {
+
+      alert("Error: " +xhr.responseText);
+
+    }
+  })
 
 
 });
