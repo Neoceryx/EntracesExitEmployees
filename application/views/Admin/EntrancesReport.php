@@ -70,9 +70,7 @@
     </div>
     <!-- End Search Panel -->
 
-
-
-    <table id="js_Entrances">
+    <table id="js_Entrances" class="responsive-table highlight">
 
       <thead>
         <tr>
@@ -121,7 +119,6 @@
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\FileSaver\FileSaver.min.js")?>"></script>
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\js-xlsx\xlsx.core.min.js")?>"></script>
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport/tableExport.js")?>"></script>
-
 
   <!-- Aditional js -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Admin\EntrancesReport.js')?>"></script>
