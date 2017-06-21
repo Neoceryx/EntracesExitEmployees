@@ -55,7 +55,7 @@
                   <label for="js_NoEmp">No Employee</label>
                 </div>
 
-                <div class="input-field col s6">
+                <div class="input-field col s12">
                   <button id="js_Srch" type="button" name="button" class="btn">Search</button>
                 </div>
 
