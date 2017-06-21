@@ -139,8 +139,15 @@ class EmployeeController extends CI_Controller
 
   }
 
-  public function GetEntrancesReportByDateRange($StartDate='2017-06-16',$EndDate='2017-06-17')
+  public function GetEntrancesReportByDateRange()
   {
+
+    // Get Initial Date val from ajax call
+    $StartDate=$this->input->post("INITDATE");
+
+    // Get End Date val from ajax call
+    $EndDate=$this->input->post("ENDDATE");
+
     // Load Model
     $this->load->model("employees");
 
@@ -162,10 +169,12 @@ class EmployeeController extends CI_Controller
       </tr>
       ";
     }
+    // End Foreach
 
   }
+  // End Function
 
 }
-
+// End Class
 
 ?>
