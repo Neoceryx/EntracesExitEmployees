@@ -52,7 +52,7 @@ class LoginController extends CI_Controller
           // Store the vaules for the sesion variable. only can stroe 3 varibles
           $EmpSession = array(
             'NoEmploye' =>$EmplNumber,
-            'Id' => 0,
+            'EmpRole' => $Row->EmployeesRoles_Id,
             'login'=>true, // Says if the empl is login
             );
 
@@ -60,7 +60,7 @@ class LoginController extends CI_Controller
           $this->session->set_userdata($EmpSession);
 
           //  Allows access to the propieties array session
-          echo $this->session->userdata('login');
+          echo $this->session->userdata('login').":".$this->session->userdata('EmpRole');
 
       }
 
