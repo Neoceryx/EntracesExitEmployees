@@ -115,3 +115,14 @@ where (NoEmploye = '12345678' and Pass='pass');
 describe employees;
 select * from employees;
 -- ===================================== Login =====================================
+
+-- ===================================== EnrancesEmployees Report =====================================
+
+-- Get Entrances report by dateRange
+SELECT employees.Id, employees.NameEmp,employees.FstName, employees.NoEmploye ,EntraceRegister,Exitregister
+, TIMEDIFF(Exitregister,EntraceRegister) as 'TimeNeeded'
+FROM shiftentracesexits
+INNER JOIN employees ON (Employees_id = employees.Id)
+WHERE (DATE(EntraceRegister) BETWEEN '2017-06-16' AND '2017-06-21' );
+
+-- ===================================== EnrancesEmployees Report =====================================
