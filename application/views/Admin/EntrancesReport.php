@@ -51,8 +51,13 @@
               <div class="row">
 
                 <div class="input-field col s6">
-                  <input id="js_NoEmp" type="text" name="" value="">
-                  <label for="js_NoEmp">No Employee</label>
+                  <input id="js_StartDate" type="date" class="datepicker">
+                  <label for="js_StartDate">Initial  Date</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <input id="js_EndDate" type="date" class="datepicker">
+                  <label for="js_EndDate">Final Date</label>
                 </div>
 
                 <div class="input-field col s12">
@@ -83,7 +88,7 @@
         </tr>
       </thead>
 
-      <tbody>
+      <tbody id="js_EntrancesData">
 
 
       </tbody>
@@ -99,6 +104,12 @@
 
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
+
+  <!-- Animation Framework -->
+  <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
+
+  <!-- Momentjs -->
+  <script type="text/javascript" src="<?= base_url("materialize\Plugins\Momentjs.js")?>"></script>
 
   <!-- Table Export plugin -->
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\FileSaver\FileSaver.min.js")?>"></script>

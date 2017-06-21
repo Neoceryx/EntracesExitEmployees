@@ -7,57 +7,32 @@ $(document).ready(function () {
   // Search Employe
   $("#js_Srch").click(function () {
 
-    // Get the element
-    var Btn=$(this);
+    // Get start Date
+    var StrtDate=moment( $("#js_StartDate").val() ).format('YYYY-MM-DD');
 
-    // Add or remove class
-    Btn.toggleClass("Show");
+    // Get End Date
+    var EndDate=moment( $("#js_EndDate").val() ).format('YYYY-MM-DD');;
 
-    // Validate Btn funcion
-    if (Btn.hasClass("Show")) {
+    // Start Ajax Call
+    $.ajax({
+      type:"POST",
+      url:URL+"EmployeeController/GetEntrancesReportByDateRange",
+      data:{INITDATE:StrtDate, ENDDATE:EndDate },
+      success:function (data) {
 
-      // Makes visibles the table rows
-      $("#js_Entrances").find("tr").removeAttr("style");
+        // Display info in the DOM
+        $("#js_EntrancesData").html(data);
 
-      // Chage Btn Text
-      Btn.text("Search");
+      },
+      error:function (xhr) {
 
-    }else {
+        alert("Error: " +xhr.responseText);
 
-      { /* Region Search */
+      }
 
-        // Get Employe Number
-        var NoEmp=$("#js_NoEmp").val();
+    });
+    // End Ajax call
 
-        // Iterate over Employe Records (tr)
-        $(".js_EmpRecords").each(function () {
-
-          // Get the element
-          var Item = $(this);
-
-          // Get all Employes Names from the table
-          var EmpNumbrs=Item.find("td").eq(2).text();
-
-          // Validate Search String
-          if (NoEmp != EmpNumbrs ) {
-
-            // Hide Records diferents to Search string
-            Item.hide();
-
-            // Chage Btn Text
-            Btn.text("Show");
-
-          }
-
-          // Display Employees Names
-          console.log(EmpNumbrs);
-
-        });
-
-      } /* End Region */
-
-    }
-    // End Btn Funcion
 
   });
   // End click
@@ -73,23 +48,5 @@ $(document).ready(function () {
     });
 
   });
-
-  $.ajax({
-    type:"POST",
-    url:URL+"EmployeeController/GetEntrancesReportByDateRange",
-    data:{},
-    success:function (data) {
-
-      // Display Bakcend Data on the DOM
-      $("tbody").html(data);
-
-    },
-    error:function (xhr) {
-
-      alert("Error: " +xhr.responseText);
-
-    }
-  })
-
 
 });
