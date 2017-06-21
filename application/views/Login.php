@@ -2,7 +2,13 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Login</title>
+
+    <!-- Alertfy css Files -->
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css\alertify.min.css")?>">
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css/themes\default.min.css")?>">
+
+
   </head>
   <body>
 
@@ -82,6 +88,9 @@
 
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
+
+  <!-- Alertfy js -->
+  <script src="<?=base_url("materialize\Plugins\alertifyjs\alertify.min.js")?>"></script>
 
   <!-- Aditional Js files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Login.js')?>"></script>

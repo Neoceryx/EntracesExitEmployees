@@ -4,7 +4,8 @@ $(document).ready(function () {
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
   // Emuns
-  var LOGIN={ISTRUE:1, ISADMIN:1};
+  var LOGIN={ISTRUE:1, ISADMIN:1, ISNORMAL:2};
+
 
   $("#js_LoginBtn").click(function () {
 
@@ -30,17 +31,42 @@ $(document).ready(function () {
         // Separate LiginValues
         var LoginValSeparated=LoginVal.split(":");
 
-        // Validate login Val and if teh user is admin
-        if (  LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISADMIN ) {
+        // Login Validations
+        if (LoginVal == 0) {
 
-          // Redirect User to the Admin DashBoard
-          window.location.href = URL+"LoginController/AdminPanel";
+          // Display User Notification
+          alertify.alert(
+            'Waring',
+            'User or Password incorrect. Please Verify the information',
+            // Call back
+            // function(){ alertify.success('Ok'); }
+          );
+
 
         }else {
 
-          alert("User or Password incorrect. Please Verify your information");
+          // Validate login Val and if teh user is admin
+          if (  LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISADMIN ) {
+
+            // Redirect User to the Admin DashBoard
+            window.location.href = URL+"LoginController/AdminPanel";
+
+          }else {
+
+            // Validate Normal User
+            if (LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISNORMAL) {
+
+              // Redirect user to NormalUser view
+
+              // Display User Notification
+              alertify.notify('Welcome Normal User', 'success', 2,);
+
+            }
+
+          }
 
         }
+        // End Login Validations
 
       },
       error:function (xhr) {
