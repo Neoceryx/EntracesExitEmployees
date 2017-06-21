@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+  // Search Employe
   $("#js_Srch").click(function () {
 
     // Get Employe Number
