@@ -3,32 +3,60 @@ $(document).ready(function () {
   // Search Employe
   $("#js_Srch").click(function () {
 
-    // Get Employe Number
-    var NoEmp=$("#js_NoEmp").val();
+    // Get the element
+    var Btn=$(this);
 
-    // Iterate over Employe Records
-    $(".js_EmpRecords").each(function () {
+    // Add or remove class
+    Btn.toggleClass("Show");
 
-      // Get the element
-      var Item = $(this);
+    // Validate Btn funcion
+    if (Btn.hasClass("Show")) {
 
-      // Get all Employes Names from the table
-      var EmpNumbrs=Item.find("td").eq(2).text();
+      // Makes visibles the table rows
+      $("#js_Entrances").find("tr").removeAttr("style");
 
-      // Validate Search String
-      if (NoEmp != EmpNumbrs ) {
+      // Chage Btn Text
+      Btn.text("Search");
 
-        // Hide Records diferents to Search string
-        Item.hide();
+    }else {
 
-      }
+      { /* Region Search */
 
-      // Display Employees Names
-      console.log(EmpNumbrs);
+        // Get Employe Number
+        var NoEmp=$("#js_NoEmp").val();
 
-    });
+        // Iterate over Employe Records (tr)
+        $(".js_EmpRecords").each(function () {
+
+          // Get the element
+          var Item = $(this);
+
+          // Get all Employes Names from the table
+          var EmpNumbrs=Item.find("td").eq(2).text();
+
+          // Validate Search String
+          if (NoEmp != EmpNumbrs ) {
+
+            // Hide Records diferents to Search string
+            Item.hide();
+
+            // Chage Btn Text
+            Btn.text("Show");
+
+          }
+
+          // Display Employees Names
+          console.log(EmpNumbrs);
+
+        });
+
+      } /* End Region */
+
+    }
+    // End Btn Funcion
 
   });
+  // End click
 
   // Download Table to excel
   $("#js_Download").click(function () {
