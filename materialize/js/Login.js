@@ -4,8 +4,7 @@ $(document).ready(function () {
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
   // Emuns
-  var Login={ISTRUE:1};
-
+  var LOGIN={ISTRUE:1, ISADMIN:1};
 
   $("#js_LoginBtn").click(function () {
 
@@ -26,17 +25,20 @@ $(document).ready(function () {
         $(".Js_LgnResult").html(data).hide();
 
         // Get Login val. Bolean. Parse string to a number
-        var LoginVal= parseInt($(".Js_LgnResult").text());
+        var LoginVal= $(".Js_LgnResult").text();
 
-        // Validate login Val
-        if (LoginVal == Login.ISTRUE) {
+        // Separate LiginValues
+        var LoginValSeparated=LoginVal.split(":");
 
-          // Redirect User to the Login view
+        // Validate login Val and if teh user is admin
+        if (  LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISADMIN ) {
+
+          // Redirect User to the Admin DashBoard
           window.location.href = URL+"LoginController/AdminPanel";
 
         }else {
 
-          alert("Please Verify Employee Information");
+          alert("User or Password incorrect. Please Verify your information");
 
         }
 
