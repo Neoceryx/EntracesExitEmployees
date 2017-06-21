@@ -85,21 +85,6 @@
 
       <tbody>
 
-        <!-- Start Display Employe Info -->
-        <?php foreach ($Employee->result() as $employee) {?>
-
-          <tr class="js_EmpRecords">
-            <td><?= $employee->NameEmp?></td>
-            <td><?= $employee->FstName?></td>
-            <td><?= $employee->NoEmploye?></td>
-            <td><?= $employee->EntraceRegister?></td>
-            <td><?= $employee->Exitregister?></td>
-            <td><?= $employee->TimeNeeded?></td>
-          </tr>
-
-        <?php } ?>
-        <!-- End Display Employe Info -->
-
 
       </tbody>
 
