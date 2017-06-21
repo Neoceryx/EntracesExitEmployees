@@ -129,30 +129,39 @@ class EmployeeController extends CI_Controller
 
   }
 
-  public function EntranceReport($value='')
+  public function EntranceReport()
   {
+    // Load class
+    $this->load->view("Template\css");
 
+    // Loads the view whit the info
+    $this->load->view("Admin\EntrancesReport");
+
+  }
+
+  public function GetEntrancesReportByDateRange($StartDate='2017-06-16',$EndDate='2017-06-17')
+  {
     // Load Model
     $this->load->model("employees");
 
-    $Result = $this->employees->GetEntrancesReport();
+    $Result = $this->employees->GetEntrancesReportByDateRange($StartDate,$EndDate);
 
     // Deugger
     // var_dump($Result->result());
 
     // Display DataBase Info.
-    // foreach ($Result->result() as $row) {
-    //   echo $row->FstName;
-    // }
-
-    // Store Query in array
-    $Data = array('Employee' => $Result );
-
-    // Lod class
-    $this->load->view("Template\css");
-
-    // Loads the view whit the info
-    $this->load->view("Admin\EntrancesReport",$Data );
+    foreach ($Result->result() as $employee) {
+      echo "
+      <tr class='js_EmpRecords'>
+        <td> $employee->NameEmp</td>
+        <td> $employee->FstName</td>
+        <td> $employee->NoEmploye</td>
+        <td> $employee->EntraceRegister</td>
+        <td> $employee->Exitregister</td>
+        <td> $employee->TimeNeeded</td>
+      </tr>
+      ";
+    }
 
   }
 
