@@ -134,6 +134,9 @@ class EmployeeController extends CI_Controller
     // Load class
     $this->load->view("Template\css");
 
+    // Load the navba fro the Admin
+    $this->load->view("Admin/navbar");
+
     // Loads the view whit the info
     $this->load->view("Admin\EntrancesReport");
 
