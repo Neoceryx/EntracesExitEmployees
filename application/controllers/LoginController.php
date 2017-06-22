@@ -103,6 +103,9 @@ class LoginController extends CI_Controller
     // stores Query data in arraay
     $Data = array('Employee' => $Result );
 
+    // Load Admin Navbar
+    $this->load->view("Admin/navbar");
+
     // Retrun Admin DashBoard view. Pass Data to te view
     $this->load->view('Admin\Index.php',$Data);
 
