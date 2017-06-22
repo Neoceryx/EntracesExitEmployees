@@ -5,7 +5,6 @@ $(document).ready(function () {
 
   // Register New Employees
   $("#js_SaveEmp").click(function () {
-        debugger
 
     // Get Employee Name
     var Name=$("#js_Name").val();
@@ -22,6 +21,25 @@ $(document).ready(function () {
     // Get Employee Role Id
     var EmpRoleId=$("#js_EmpRole").val();
 
+    // Start ajax
+    $.ajax({
+      type:"POST",
+      url:URL+"EmployeeController/AddNewEmployee",
+      data:{NAME:Name},
+      success:function (data) {
+
+        // Display bakenc data in the DOM'
+        $(".js_Result").html(data);
+
+      },
+      error:function (xhr) {
+
+        alert("Error: " +xhr.responseText);
+
+      }
+
+    });
+    // End ajax
 
   });
 
