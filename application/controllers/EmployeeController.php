@@ -192,6 +192,17 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
+  public function AddNewEmployee()
+  {
+
+    // Get EmpName from ajax call
+    $Name=$this->input->post("NAME");
+
+    echo $Name;
+
+  }
+  // End function
+
 }
 // End Class
 
