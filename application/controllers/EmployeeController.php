@@ -177,6 +177,15 @@ class EmployeeController extends CI_Controller
   }
   // End Function
 
+  public function NewEmployee()
+  {
+
+    // Load the Register Employe Form
+    $this->load->view("Admin\NewEmployee");
+
+  }
+  // End function
+
 }
 // End Class
 
