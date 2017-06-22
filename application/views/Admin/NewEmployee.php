@@ -51,6 +51,9 @@
     </div>
     <!-- Start form Register container -->
 
+    <!-- Display bakenc result -->
+    <div class="js_Result"></div>
+
 
   </body>
 
