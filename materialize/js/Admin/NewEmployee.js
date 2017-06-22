@@ -25,7 +25,7 @@ $(document).ready(function () {
     $.ajax({
       type:"POST",
       url:URL+"EmployeeController/AddNewEmployee",
-      data:{NAME:Name},
+      data:{NAME:Name, FSTNAME:FstName, EMPNUMBR:EmpNumbr, EMPASS:EmpPass, EMPROLEID:EmpRoleId},
       success:function (data) {
 
         // Display bakenc data in the DOM'
