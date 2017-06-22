@@ -23,6 +23,21 @@ $(document).ready(function () {
         // Display info in the DOM
         $("#js_EntrancesData").html(data);
 
+        // Get the row number
+        var rowCount = $('#js_EntrancesData tr').length;
+
+        // Validate if the table has records
+        if ( rowCount == 0 ) {
+
+          // Set Notification Screen Position
+          alertify.set('notifier','position', 'top-left');
+
+          // Display Notification
+          alertify.error('No records found', alertify.get('notifier','position'));
+
+        }
+
+
       },
       error:function (xhr) {
 

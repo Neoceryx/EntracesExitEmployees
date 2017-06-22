@@ -2,7 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Entraces Report</title>
+
+    <!-- Alertfy css Files -->
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css\alertify.min.css")?>">
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css/themes\default.min.css")?>">
+
   </head>
   <body>
 
@@ -89,8 +94,6 @@
       </thead>
 
       <tbody id="js_EntrancesData">
-
-
       </tbody>
 
     </table>
@@ -110,6 +113,9 @@
 
   <!-- Momentjs -->
   <script type="text/javascript" src="<?= base_url("materialize\Plugins\Momentjs.js")?>"></script>
+
+  <!-- Alertfy js -->
+  <script src="<?=base_url("materialize\Plugins\alertifyjs\alertify.min.js")?>"></script>
 
   <!-- Table Export plugin -->
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\FileSaver\FileSaver.min.js")?>"></script>
