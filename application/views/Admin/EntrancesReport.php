@@ -2,7 +2,12 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Entraces Report</title>
+
+    <!-- Alertfy css Files -->
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css\alertify.min.css")?>">
+    <link rel="stylesheet" href="<?=base_url("materialize\Plugins\alertifyjs\css/themes\default.min.css")?>">
+
   </head>
   <body>
 
@@ -51,12 +56,18 @@
               <div class="row">
 
                 <div class="input-field col s6">
-                  <input id="js_NoEmp" type="text" name="" value="">
-                  <label for="js_NoEmp">No Employee</label>
+                  <input id="js_StartDate" type="date" class="datepicker">
+                  <label for="js_StartDate">Initial  Date</label>
                 </div>
 
                 <div class="input-field col s6">
-                  <button id="js_Srch" type="button" name="button" class="btn">Search</button>
+                  <input id="js_EndDate" type="date" class="datepicker">
+                  <label for="js_EndDate">Final Date</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <button id="js_Srch" type="button" name="button" class="btn waves-effect waves-light">Search</button>
+                  <button id="js_Download" type="button" name="button" class="btn waves-effect waves-light">Download</button>
                 </div>
 
               </div>
@@ -69,9 +80,7 @@
     </div>
     <!-- End Search Panel -->
 
-
-
-    <table>
+    <table id="js_Entrances" class="responsive-table highlight">
 
       <thead>
         <tr>
@@ -84,24 +93,7 @@
         </tr>
       </thead>
 
-      <tbody>
-
-        <!-- Start Display Employe Info -->
-        <?php foreach ($Employee->result() as $employee) {?>
-
-          <tr class="js_EmpRecords">
-            <td><?= $employee->NameEmp?></td>
-            <td><?= $employee->FstName?></td>
-            <td><?= $employee->NoEmploye?></td>
-            <td><?= $employee->EntraceRegister?></td>
-            <td><?= $employee->Exitregister?></td>
-            <td><?= $employee->TimeNeeded?></td>
-          </tr>
-
-        <?php } ?>
-        <!-- End Display Employe Info -->
-
-
+      <tbody id="js_EntrancesData">
       </tbody>
 
     </table>
@@ -115,6 +107,20 @@
 
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
+
+  <!-- Animation Framework -->
+  <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
+
+  <!-- Momentjs -->
+  <script type="text/javascript" src="<?= base_url("materialize\Plugins\Momentjs.js")?>"></script>
+
+  <!-- Alertfy js -->
+  <script src="<?=base_url("materialize\Plugins\alertifyjs\alertify.min.js")?>"></script>
+
+  <!-- Table Export plugin -->
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\FileSaver\FileSaver.min.js")?>"></script>
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\js-xlsx\xlsx.core.min.js")?>"></script>
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport/tableExport.js")?>"></script>
 
   <!-- Aditional js -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Admin\EntrancesReport.js')?>"></script>

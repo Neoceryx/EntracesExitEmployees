@@ -50,12 +50,15 @@ class Employees extends CI_Model
 
   }
 
-  public function GetEntrancesReport()
+  public function GetEntrancesReportByDateRange($StartDate,$EndDate)
   {
 
     // Build the query
-    $Query = $this->db->query("SELECT  Employees.NameEmp, Employees.FstName, Employees.NoEmploye, EntraceRegister, Exitregister, TIMEDIFF(Exitregister,EntraceRegister) AS 'TimeNeeded'
-    FROM  ShiftEntracesExits INNER JOIN Employees ON (Employees_Id = Id)");
+    $Query = $this->db->query("SELECT employees.Id, employees.NameEmp,employees.FstName, employees.NoEmploye ,EntraceRegister,Exitregister
+      , TIMEDIFF(Exitregister,EntraceRegister) as 'TimeNeeded'
+      FROM shiftentracesexits
+      INNER JOIN employees ON (Employees_id = employees.Id)
+      WHERE (DATE(EntraceRegister) BETWEEN '".$StartDate."' AND '".$EndDate."' );");
 
     // Execute the query
     return $Query;
