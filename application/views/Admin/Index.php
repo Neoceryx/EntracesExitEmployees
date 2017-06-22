@@ -6,8 +6,6 @@
   </head>
   <body>
 
-
-
     <h3 id="js_Sess" class="center-align">
       Welcome
 
@@ -51,9 +49,6 @@
         </div>
       </div>
       <!-- End Register Employee Card -->
-
-
-
 
     </div>
     <!-- End Content -->
