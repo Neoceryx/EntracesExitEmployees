@@ -198,7 +198,16 @@ class EmployeeController extends CI_Controller
     // Get EmpName from ajax call
     $Name=$this->input->post("NAME");
 
-    echo $Name;
+    // Get FirstName
+    $FstName=$this->input->post("FSTNAME");
+
+    $EmNmbr=$this->input->post("EMPNUMBR");
+
+    $EmpPass=$this->input->post("EMPASS");
+
+    $EmpRoleId=$this->input->post("EMPROLEID");
+
+    echo $Name. " : ".$FstName." : ".$EmNmbr." : ".$EmpPass." : ". $EmpRoleId;
 
   }
   // End function
