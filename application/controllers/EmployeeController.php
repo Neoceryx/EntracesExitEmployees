@@ -180,6 +180,12 @@ class EmployeeController extends CI_Controller
   public function NewEmployee()
   {
 
+    // Load the css files
+    $this->load->view("Template\css");
+
+    // Load the Admin navbar
+    $this->load->view("Admin/navbar");
+
     // Load the Register Employe Form
     $this->load->view("Admin\NewEmployee");
 
