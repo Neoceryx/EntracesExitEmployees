@@ -209,6 +209,12 @@ class EmployeeController extends CI_Controller
 
     echo $Name. " : ".$FstName." : ".$EmNmbr." : ".$EmpPass." : ". $EmpRoleId;
 
+    // Load the model
+    $this->load->model("employees");
+
+    // Acces to the insert method
+    $this->employees->SaveEmploye($Name, $FstName, $EmNmbr, $EmpPass, $EmpRoleId);
+
   }
   // End function
 
