@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+
+
   </head>
   <body>
 
@@ -10,32 +12,28 @@
 
     <!-- Start form Register container -->
     <div class="row">
-      <form class="col s12 m12 l12">
+      <form id="js_FormRegEmp" class="col s12 m12 l12">
         <div class="row">
 
           <div class="input-field col s6">
-            <input id="js_Name" type="text" name="" value="">
-            <label for="js_Name">Name</label>
+            <input id="js_Name" type="text" placeholder="Name" name="jv_Name" class="validate" value="">
           </div>
 
           <div class="input-field col s6">
-            <input id="js_FstName" type="text" name="" value="">
-            <label for="js_FstName">First Name</label>
+            <input id="js_FstName" type="text" placeholder="First Name" name="jv_FstName" value="">
           </div>
 
           <div class="input-field col s4">
-            <input id="js_EmpNumbr" type="text" name="" value="">
-            <label for="js_EmpNumbr">Employe Number</label>
+            <input id="js_EmpNumbr" type="text" placeholder="Employe Number" name="jv_EmpNum" value="">
           </div>
 
           <div class="input-field col s4">
-            <input id="js_Pass" type="text" name="" value="">
-            <label for="js_Pass">Employe Pass</label>
+            <input id="js_Pass" type="text" placeholder="Employe Pass" name="js_EmpPass" value="">
           </div>
 
           <div class="col s4">
             <label>Browser Select</label>
-            <select id="js_EmpRole" class="browser-default">
+            <select id="js_EmpRole" class="browser-default" name="jv_EmpRole">
               <option value="" disabled selected>Choose your option</option>
               <option value="2">Normal</option>
               <option value="1">Admin</option>
@@ -66,9 +64,10 @@
   <!-- Framework effects -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
 
+  <!-- Jquery Validator Plugin -->
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\jquery-validation-1.16.0\dist\jquery.validate.min.js")?>"></script>
+
   <!-- Adtional Js -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\NewEmployee.js")?>"></script>
-
-
 
 </html>
