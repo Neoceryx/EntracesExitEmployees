@@ -27,14 +27,13 @@ $(document).ready(function () {
       success:function (data) {
 
         // Display backend result on the DOM
-        $(".Js_LgnResult").html(data)
+        $(".Js_LgnResult").html(data).hide();
 
         // Get Login val. Bolean. Parse string to a number
         var LoginVal= $(".Js_LgnResult").text();
 
         // Separate LiginValues
         var LoginValSeparated=LoginVal.split(":");
-        debugger
 
         // Login Validations
         if (LoginVal == 0) {
