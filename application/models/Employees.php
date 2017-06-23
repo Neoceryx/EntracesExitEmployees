@@ -65,6 +65,24 @@ class Employees extends CI_Model
 
   }
 
+  public function SaveEmploye($Name, $FName, $EmpNum, $Pass, $EmpRoleId)
+  {
+    // Assossiative Array
+    $Data = array(
+      'NameEmp' => $Name,
+      'FstName' => $FName,
+      'NoEmploye' => $EmpNum,
+      'Pass' => $Pass,
+      'EmployeesRoles_Id' => $EmpRoleId,
+     );
+
+    // Build Query.
+    $this->db->insert( "employees", $Data);
+
+
+  }
+
 }
+// End class
 
 ?>
