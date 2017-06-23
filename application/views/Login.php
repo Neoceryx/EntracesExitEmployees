@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="input-field col s12">
-                      <button id="js_LoginBtn" class="btn waves-effects waves-light col s12" type="button" name="button">Login</button>
+                      <button id="js_LoginBtn" class="btn waves-effect waves-light col s12" type="button" name="button">Login</button>
                     </div>
 
                   </div>
