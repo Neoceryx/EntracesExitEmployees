@@ -134,6 +134,9 @@ class EmployeeController extends CI_Controller
     // Load class
     $this->load->view("Template\css");
 
+    // Load the navba fro the Admin
+    $this->load->view("Admin/navbar");
+
     // Loads the view whit the info
     $this->load->view("Admin\EntrancesReport");
 
@@ -173,6 +176,51 @@ class EmployeeController extends CI_Controller
 
   }
   // End Function
+
+  public function NewEmployee()
+  {
+
+    // Load the css files
+    $this->load->view("Template\css");
+
+    // Load the Admin navbar
+    $this->load->view("Admin/navbar");
+
+    // Load the Register Employe Form
+    $this->load->view("Admin\NewEmployee");
+
+  }
+  // End function
+
+  public function AddNewEmployee()
+  {
+
+    // Get EmpName from ajax call
+    $Name=$this->input->post("NAME");
+
+    // Get FirstName
+    $FstName=$this->input->post("FSTNAME");
+
+    // Get Employe number
+    $EmNmbr=$this->input->post("EMPNUMBR");
+
+    // Get Employee pass.
+    $EmpPass=$this->input->post("EMPASS");
+
+    // Get Employe Role
+    $EmpRoleId=$this->input->post("EMPROLEID");
+
+    // Load the model
+    $this->load->model("employees");
+
+    // Access to the insert method. And store the result.
+    $Result=$this->employees->SaveEmploye($Name, $FstName, $EmNmbr, $EmpPass, $EmpRoleId);
+
+    // Display method result
+    echo $Result;
+
+  }
+  // End function
 
 }
 // End Class

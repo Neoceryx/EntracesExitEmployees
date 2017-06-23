@@ -65,6 +65,66 @@ class Employees extends CI_Model
 
   }
 
+  public function SaveEmploye($Name, $FName, $EmpNum, $Pass, $EmpRoleId)
+  {
+
+    // Descision variable
+    $IsRepeted="";
+
+    // Constant
+    define("YES",1);
+
+    { /* Region Verify new employe is not repeted */
+
+      // Build the query
+      $this->db->select("COUNT(*)as Repetitions");
+      $this->db->from("employees");
+      $this->db->where("NoEmploye",$EmpNum);
+
+      // Prepare Query to be execute
+      $Query=$this->db->get();
+
+      // Executes the query
+      foreach ($Query->result() as $employe) {
+
+        // Store the number rows affetec by the query
+        $IsRepeted=$employe->Repetitions;
+
+      }
+
+    } /* End Region */
+
+    // validate if the Employe is not repeted
+    if ($IsRepeted == YES) {
+
+      // Return the Repeats number from an employee
+      return $IsRepeted;
+
+    }else {
+
+      { /* Region Add New Employess */
+
+        // Assossiative Array
+        $Data = array(
+          'NameEmp' => $Name,
+          'FstName' => $FName,
+          'NoEmploye' => $EmpNum,
+          'Pass' => $Pass,
+          'EmployeesRoles_Id' => $EmpRoleId,
+         );
+
+        // Build Query.
+        $this->db->insert( "employees", $Data);
+
+      } /* End Region */
+
+    }
+    // End Validation
+
+  }
+  // End function
+
 }
+// End class
 
 ?>

@@ -126,3 +126,24 @@ INNER JOIN employees ON (Employees_id = employees.Id)
 WHERE (DATE(EntraceRegister) BETWEEN '2017-06-16' AND '2017-06-21' );
 
 -- ===================================== EnrancesEmployees Report =====================================
+
+-- ===================================== Register New Employee =====================================
+
+-- validate if the employee is nor registerd
+SELECT COUNT(*) FROM employees WHERE (NoEmploye= 12345678912);
+
+-- Add New Employee
+insert into employees (NameEmp,FstName,NoEmploye,Pass,EmployeesRoles_Id) 
+values ('Jazmin', 'Martinez', '123456789', '1234', 1 );
+
+select * from employees;
+select * from employeesRoles;
+
+delete from employees where (Id between 4 and 5);
+
+describe employees;
+
+-- reset the autoincrement counter
+ALTER TABLE employees AUTO_INCREMENT = 4
+
+-- ===================================== Register New Employee =====================================

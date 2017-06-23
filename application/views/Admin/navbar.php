@@ -9,7 +9,7 @@
       <li><a href="#">Entrances Report</a></li>
 
       <!-- Validate If the user is login -->
-      <?php if ($this->session->userdata('login') ) { $SesValidate=$this->session->userdata('login') ?>
+      <?php if ($this->session->userdata('login') ) { ?>
 
         <li><a href="<?=site_url('LoginController/LogOut')?>">Log Out</a></li>
 

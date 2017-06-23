@@ -9,6 +9,12 @@ $(document).ready(function () {
 
   });
 
+  $("#js_RegEmp").click(function () {
+
+    window.location.href=URL+"EmployeeController/NewEmployee";
+
+  });
+
 
 });
 // End Scope
