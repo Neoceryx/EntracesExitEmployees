@@ -201,19 +201,23 @@ class EmployeeController extends CI_Controller
     // Get FirstName
     $FstName=$this->input->post("FSTNAME");
 
+    // Get Employe number
     $EmNmbr=$this->input->post("EMPNUMBR");
 
+    // Get Employee pass.
     $EmpPass=$this->input->post("EMPASS");
 
+    // Get Employe Role
     $EmpRoleId=$this->input->post("EMPROLEID");
-
-    echo $Name. " : ".$FstName." : ".$EmNmbr." : ".$EmpPass." : ". $EmpRoleId;
 
     // Load the model
     $this->load->model("employees");
 
-    // Acces to the insert method
-    $this->employees->SaveEmploye($Name, $FstName, $EmNmbr, $EmpPass, $EmpRoleId);
+    // Access to the insert method. And store the result.
+    $Result=$this->employees->SaveEmploye($Name, $FstName, $EmNmbr, $EmpPass, $EmpRoleId);
+
+    // Display method result
+    echo $Result;
 
   }
   // End function
