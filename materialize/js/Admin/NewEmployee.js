@@ -3,45 +3,89 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
+  // Extension pour comptabilité avec materialize.css
+$.validator.setDefaults({
+  errorClass: 'invalid',
+  validClass: "valid",
+  errorPlacement: function(error, element) {
+    $(element)
+      .closest("form")
+      .find("label[for='" + element.attr("id") + "']")
+      .attr('data-error', error.text());
+  },
+  submitHandler: function(form) {
+    console.log('form ok');
+  }
+});
+
+  // Validate From
+  $("#js_FormRegEmp").validate({
+
+    // fields Rules Validations
+    rules:{
+
+      // The key name on the left side is the name attribute
+      // of an input field. Validation rules are defined
+      // on the right side
+
+      jv_Name:"required",
+      jv_FstName:"required",
+      jv_EmpNum:"required",
+      js_EmpPass:"required",
+      jv_EmpRole:"required"
+
+    }
+
+  })
+
+
   // Register New Employees
   $("#js_SaveEmp").click(function () {
 
-    // Get Employee Name
-    var Name=$("#js_Name").val();
+    // Call fields form Validations
+    if ( $("#js_FormRegEmp").valid() ) {
 
-    // Get Employe FirstName
-    var FstName=$("#js_FstName").val();
+      // Get Employee Name
+      var Name=$("#js_Name").val();
 
-    // Get Employee Number
-    var EmpNumbr=$("#js_EmpNumbr").val();
+      // Get Employe FirstName
+      var FstName=$("#js_FstName").val();
 
-    // Get Emp Pass
-    var EmpPass=$("#js_Pass").val();
+      // Get Employee Number
+      var EmpNumbr=$("#js_EmpNumbr").val();
 
-    // Get Employee Role Id
-    var EmpRoleId=$("#js_EmpRole").val();
+      // Get Emp Pass
+      var EmpPass=$("#js_Pass").val();
 
-    // Start ajax
-    $.ajax({
-      type:"POST",
-      url:URL+"EmployeeController/AddNewEmployee",
-      data:{NAME:Name, FSTNAME:FstName, EMPNUMBR:EmpNumbr, EMPASS:EmpPass, EMPROLEID:EmpRoleId},
-      success:function (data) {
+      // Get Employee Role Id
+      var EmpRoleId=$("#js_EmpRole").val();
 
-        // Display bakenc data in the DOM'
-        $(".js_Result").html(data);
+      // Start ajax
+      $.ajax({
+        type:"POST",
+        url:URL+"EmployeeController/AddNewEmployee",
+        data:{NAME:Name, FSTNAME:FstName, EMPNUMBR:EmpNumbr, EMPASS:EmpPass, EMPROLEID:EmpRoleId},
+        success:function (data) {
 
-      },
-      error:function (xhr) {
+          // Display bakenc data in the DOM'
+          $(".js_Result").html(data);
 
-        alert("Error: " +xhr.responseText);
+        },
+        error:function (xhr) {
 
-      }
+          alert("Error: " +xhr.responseText);
 
-    });
-    // End ajax
+        }
+
+      });
+      // End ajax
+
+    }
+    // End Valiadtion fields rules
 
   });
+  // End click
+
 
 
 });
