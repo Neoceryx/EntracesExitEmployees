@@ -4,19 +4,19 @@ $(document).ready(function () {
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
   // Extension pour comptabilité avec materialize.css
-$.validator.setDefaults({
-  errorClass: 'invalid',
-  validClass: "valid",
-  errorPlacement: function(error, element) {
-    $(element)
-      .closest("form")
-      .find("label[for='" + element.attr("id") + "']")
-      .attr('data-error', error.text());
-  },
-  submitHandler: function(form) {
-    console.log('form ok');
-  }
-});
+// $.validator.setDefaults({
+//   errorClass: 'invalid',
+//   validClass: "valid",
+//   errorPlacement: function(error, element) {
+//     $(element)
+//       .closest("form")
+//       .find("label[for='" + element.attr("id") + "']")
+//       .attr('data-error', error.text());
+//   },
+//   submitHandler: function(form) {
+//     console.log('form ok');
+//   }
+// });
 
   // Validate From
   $("#js_FormRegEmp").validate({
@@ -28,10 +28,10 @@ $.validator.setDefaults({
       // of an input field. Validation rules are defined
       // on the right side
 
-      jv_Name:"required",
-      jv_FstName:"required",
-      jv_EmpNum:"required",
-      js_EmpPass:"required",
+      jv_Name:{required:true, minlength:4},
+      jv_FstName:{required:true, minlength:4},
+      jv_EmpNum:{required:true, number: true, minlength:4},
+      js_EmpPass:{required:true, minlength:4},
       jv_EmpRole:"required"
 
     }
