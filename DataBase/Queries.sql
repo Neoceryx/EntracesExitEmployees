@@ -144,6 +144,6 @@ delete from employees where (Id between 4 and 5);
 describe employees;
 
 -- reset the autoincrement counter
-ALTER TABLE employees AUTO_INCREMENT = 4
+ALTER TABLE employees AUTO_INCREMENT = 4;
 
 -- ===================================== Register New Employee =====================================

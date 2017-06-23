@@ -6,6 +6,10 @@ $(document).ready(function () {
   // Emuns
   var LOGIN={ISTRUE:1, ISADMIN:1, ISNORMAL:2};
 
+  // Const
+  let LOGINARRAY={SES:0, EMPPART:1};
+
+
 
   $("#js_LoginBtn").click(function () {
 
@@ -23,13 +27,14 @@ $(document).ready(function () {
       success:function (data) {
 
         // Display backend result on the DOM
-        $(".Js_LgnResult").html(data).hide();
+        $(".Js_LgnResult").html(data)
 
         // Get Login val. Bolean. Parse string to a number
         var LoginVal= $(".Js_LgnResult").text();
 
         // Separate LiginValues
         var LoginValSeparated=LoginVal.split(":");
+        debugger
 
         // Login Validations
         if (LoginVal == 0) {
@@ -46,7 +51,7 @@ $(document).ready(function () {
         }else {
 
           // Validate login Val and if teh user is admin
-          if (  LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISADMIN ) {
+          if (  LoginValSeparated[LOGINARRAY.SES] == LOGIN.ISTRUE && LoginValSeparated[LOGINARRAY.EMPPART]==LOGIN.ISADMIN ) {
 
             // Redirect User to the Admin DashBoard
             window.location.href = URL+"LoginController/AdminPanel";
@@ -54,7 +59,7 @@ $(document).ready(function () {
           }else {
 
             // Validate Normal User
-            if (LoginValSeparated[0] == LOGIN.ISTRUE && LoginValSeparated[1]==LOGIN.ISNORMAL) {
+            if (LoginValSeparated[LOGINARRAY.SES] == LOGIN.ISTRUE && LoginValSeparated[LOGINARRAY.EMPPART]==LOGIN.ISNORMAL) {
 
               // Redirect user to NormalUser view
 
