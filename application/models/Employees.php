@@ -97,7 +97,8 @@ class Employees extends CI_Model
     // validate if the Employe is not repeted
     if ($IsRepeted == YES) {
 
-      return 0;
+      // Return the Repeats number from an employee
+      return $IsRepeted;
 
     }else {
 
@@ -121,6 +122,7 @@ class Employees extends CI_Model
     // End Validation
 
   }
+  // End function
 
 }
 // End class
