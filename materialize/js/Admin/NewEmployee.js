@@ -3,20 +3,9 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
-  // Extension pour comptabilité avec materialize.css
-// $.validator.setDefaults({
-//   errorClass: 'invalid',
-//   validClass: "valid",
-//   errorPlacement: function(error, element) {
-//     $(element)
-//       .closest("form")
-//       .find("label[for='" + element.attr("id") + "']")
-//       .attr('data-error', error.text());
-//   },
-//   submitHandler: function(form) {
-//     console.log('form ok');
-//   }
-// });
+  // Constant
+  let YES=1;
+
 
   // Validate From
   $("#js_FormRegEmp").validate({
@@ -37,7 +26,6 @@ $(document).ready(function () {
     }
 
   })
-
 
   // Register New Employees
   $("#js_SaveEmp").click(function () {
@@ -69,6 +57,42 @@ $(document).ready(function () {
 
           // Display bakenc data in the DOM'
           $(".js_Result").html(data);
+
+          // Get the repeats Employee
+          var IsRegister=parseInt( $(".js_Result").text() );
+
+          // Validation
+          if (IsRegister >= YES) {
+
+            // Set screen position notification
+            alertify.set('notifier','position', 'top-left');
+
+            // Display notification
+            alertify.notify(
+              "This Employe is allready Registered",
+              'error',
+              4,
+              alertify.get('notifier','position')
+            );
+
+          }else {
+
+            // Set screen position notification
+            alertify.set('notifier','position', 'top-left');
+
+            // Display notification
+            alertify.notify(
+              "Employee has been registered",
+              'success',
+              4,
+              alertify.get('notifier','position')
+            );
+
+            // Clear Field from
+            $('#js_FormRegEmp')[0].reset();
+
+          }
+          // End Validation
 
         },
         error:function (xhr) {
