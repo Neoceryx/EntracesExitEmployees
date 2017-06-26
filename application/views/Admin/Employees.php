@@ -12,15 +12,23 @@
     <div class="row">
 
       <!-- Start Employee Card -->
-      <div class="col s12 m5">
-        <div class="card-panel teal">
-          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-            I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
-          </span>
+      <div class="col s12 m4 l4 js_Employee" data-empid="1">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s4">
+                <img src="https://cdn0.iconfinder.com/data/icons/superuser-web-kit/512/686909-user_people_man_human_head_person-512.png" alt="" class="circle responsive-img"> <!-- notice the "circle" class -->
+              </div>
+              <div class="col s8">
+                <span class="black-text">
+                  <p>Daniel Fierro</p>
+                  <p>12345678</p>
+                  <p>Normal</p>
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
       <!-- End Employee Card -->
-
 
     </div>
   <!-- End employee list container -->
