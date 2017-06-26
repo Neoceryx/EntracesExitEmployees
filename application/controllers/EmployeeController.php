@@ -222,6 +222,21 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
+  public function GetEmployees()
+  {
+
+    // Load css files
+    $this->load->view('Template\css');
+
+    // Load the Admin navbar
+    $this->load->view("Admin/navbar");
+
+    // Load the view
+    $this->load->view("Admin\Employees");
+
+  }
+  // End function
+
 }
 // End Class
 
