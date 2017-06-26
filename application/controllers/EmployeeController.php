@@ -222,7 +222,7 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
-  public function GetEmployees()
+  public function EmployeesView()
   {
 
     // Load css files
@@ -236,6 +236,41 @@ class EmployeeController extends CI_Controller
 
   }
   // End function
+
+  public function GetEmployeesList()
+  {
+    // Build the query
+    $this->db->select("employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description as Desc");
+    $this->db->from("employees");
+    $this->db->join("employeesRoles","EmployeesRoles_Id=employeesRoles.Id");
+
+    // Query executes
+    $Query=$this->db->get()->result();
+
+    foreach ($Query as $employe) {
+
+      echo"
+      <div class='col s12 m4 l4 js_Employee' data-empid='1'>
+          <div class='card-panel grey lighten-5 z-depth-1'>
+            <div class='row valign-wrapper'>
+              <div class='col s4'>
+                <img src='http://blog.chemistry.com/wp-content/uploads/2012/09/man-smiling.jpg' alt='' class='circle responsive-img'>
+              </div>
+              <div class='col s8'>
+                <span class='black-text'>
+                  <p>".$employe->NameEmp." ".$employe->FstName."</p>
+                  <p>".$employe->NoEmploye."</p>
+                  <p>".$employe->Desc."</p>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ";
+
+    }
+    // End foreach
+  }
 
 }
 // End Class
