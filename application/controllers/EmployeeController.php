@@ -246,7 +246,7 @@ class EmployeeController extends CI_Controller
     // Store method result.Access to the method that return employe list
     $Result=$this->Employees->GetEmpList();
 
-
+    // Display Employe Info
     foreach ($Result->result() as $employe) {
 
       echo"
