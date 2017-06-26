@@ -65,6 +65,9 @@
     </div>
     <!-- End employee list container -->
 
+    <input id="sortpicture" type="file" name="sortpic" />
+<button id="upload">Upload</button>
+
   </body>
 
   <!-- Jquery  -->
