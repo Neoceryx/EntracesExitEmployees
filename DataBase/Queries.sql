@@ -147,3 +147,27 @@ describe employees;
 ALTER TABLE employees AUTO_INCREMENT = 4;
 
 -- ===================================== Register New Employee =====================================
+
+-- ===================================== Stores procedures =====================================
+
+-- Get All Users SP
+delimiter //
+create procedure GetEmployees( EmpNumber varchar(50) )
+
+begin
+
+select * from employees where (NoEmploye=EmpNumber);
+
+end//
+
+-- call store procedure
+call GetEmployees('1234');
+
+-- Delete store procedure
+DROP PROCEDURE IF EXISTS GetEmployees;
+-- ===================================== Stores procedures =====================================
+
+delimiter // -- asd
+begin
+select * from employees;
+end //
