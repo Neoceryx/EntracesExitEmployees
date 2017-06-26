@@ -124,6 +124,12 @@ class Employees extends CI_Model
   }
   // End function
 
+  public function GetEmpList()
+  {
+
+  }
+  // End function
+
 }
 // End class
 
