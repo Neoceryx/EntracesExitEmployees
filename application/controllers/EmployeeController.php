@@ -239,15 +239,15 @@ class EmployeeController extends CI_Controller
 
   public function GetEmployeesList()
   {
-    // Build the query
-    $this->db->select("employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description as Desc");
-    $this->db->from("employees");
-    $this->db->join("employeesRoles","EmployeesRoles_Id=employeesRoles.Id");
 
-    // Query executes
-    $Query=$this->db->get()->result();
+    // Load the model
+    $this->load->model("Employees");
 
-    foreach ($Query as $employe) {
+    // Store method result.Access to the method that return employe list
+    $Result=$this->Employees->GetEmpList();
+
+
+    foreach ($Result->result() as $employe) {
 
       echo"
       <div class='col s12 m4 l4 js_Employee' data-empid='1'>

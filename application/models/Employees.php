@@ -127,6 +127,14 @@ class Employees extends CI_Model
   public function GetEmpList()
   {
 
+    // Build the query
+    $this->db->select("employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description as Desc");
+    $this->db->from("employees");
+    $this->db->join("employeesRoles","EmployeesRoles_Id=employeesRoles.Id");
+
+    // Prepre Query to be executed
+    return $this->db->get();
+
   }
   // End function
 
