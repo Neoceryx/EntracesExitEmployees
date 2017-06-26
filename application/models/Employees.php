@@ -128,7 +128,7 @@ class Employees extends CI_Model
   {
 
     // Build the query
-    $this->db->select("employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description as Desc");
+    $this->db->select("employees.Id as EmpId, NameEmp, FstName, NoEmploye, employeesRoles.Description as Desc");
     $this->db->from("employees");
     $this->db->join("employeesRoles","EmployeesRoles_Id=employeesRoles.Id");
 
