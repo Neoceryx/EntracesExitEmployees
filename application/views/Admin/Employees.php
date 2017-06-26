@@ -33,6 +33,7 @@
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
 
-
+  <!-- Aditional js files -->
+  <script type="text/javascript" src="<?=base_url("materialize\js\Admin\Employees.js")?>"></script>
 
 </html>
