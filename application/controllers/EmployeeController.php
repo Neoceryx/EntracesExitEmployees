@@ -231,46 +231,21 @@ class EmployeeController extends CI_Controller
     // Load the Admin navbar
     $this->load->view("Admin/navbar");
 
-    // Load the view
-    $this->load->view("Admin\Employees");
-
-  }
-  // End function
-
-  public function GetEmployeesList()
-  {
-
     // Load the model
     $this->load->model("Employees");
 
     // Store method result.Access to the method that return employe list
     $Result=$this->Employees->GetEmpList();
 
-    // Display Employe Info
-    foreach ($Result->result() as $employe) {
+    // Create asosiative array
+    $Data = array('EMPLOYE' => $Result );
 
-      echo"
-      <div class='col s12 m4 l4 js_Employee' data-empid='1'>
-          <div class='card-panel grey lighten-5 z-depth-1'>
-            <div class='row valign-wrapper'>
-              <div class='col s4'>
-                <img src='http://blog.chemistry.com/wp-content/uploads/2012/09/man-smiling.jpg' alt='' class='circle responsive-img'>
-              </div>
-              <div class='col s8'>
-                <span class='black-text'>
-                  <p>".$employe->NameEmp." ".$employe->FstName."</p>
-                  <p>".$employe->NoEmploye."</p>
-                  <p>".$employe->Desc."</p>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      ";
+    // Load the view. Whit the Employees info
+    $this->load->view("Admin\Employees",$Data);
 
-    }
-    // End foreach
   }
+  // End function
+
 
 }
 // End Class
