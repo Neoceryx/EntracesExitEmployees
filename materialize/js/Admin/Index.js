@@ -17,7 +17,7 @@ $(document).ready(function () {
 
   $("#js_Emp").click(function () {
 
-    window.location.href=URL+"EmployeeController/GetEmployees";
+    window.location.href=URL+"EmployeeController/EmployeesView";
 
   });
 
