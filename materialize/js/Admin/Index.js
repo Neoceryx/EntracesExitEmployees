@@ -15,6 +15,11 @@ $(document).ready(function () {
 
   });
 
+  $("#js_Emp").click(function () {
+
+    window.location.href=URL+"EmployeeController/GetEmployees";
+
+  });
 
 });
 // End Scope
