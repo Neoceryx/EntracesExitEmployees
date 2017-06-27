@@ -169,7 +169,10 @@ $(document).ready(function () {
 
   // Allows use elements appended
   $(document).on('click','.js_t', function(){
-  alert("HI");
+
+    $(this).css("background-color", "yellow");
+
+
   });
 
 
