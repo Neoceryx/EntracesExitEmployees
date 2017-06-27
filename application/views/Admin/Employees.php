@@ -83,12 +83,14 @@
 
             <div class="row ">
 
-              <label>Browser Disabled</label>
-              <select id="js_RolesId" class="browser-default" >
-                <option value=""  selected>Choose the employee role</option>
-                <option value="1">Admin</option>
-                <option value="2">Normal</option>
-              </select>
+              <div class="col s6 ">
+                <label>Employee roles</label>
+                <select id="js_RolesId" class="browser-default" >
+                  <option value=""  selected>Choose the employee role</option>
+                  <option value="1">Admin</option>
+                  <option value="2">Normal</option>
+                </select>
+              </div>
 
             </div>
 
@@ -97,7 +99,7 @@
 
       </div>
       <div class="modal-footer">
-        <a id="js_ModifyEmpInfo" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Save Changes</a>
+        <a id="js_ModifyEmpInfo" href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
       </div>
     </div>
 

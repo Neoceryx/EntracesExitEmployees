@@ -111,8 +111,13 @@ $(document).ready(function () {
 
   // Update Employee Info
   $("#js_ModifyEmpInfo").click(function () {
-    alert("HI");    
+
+
+    // Close modal
+    $('#js_EmpDetail').modal('close');
+
   });
+  // End click
 
 
 });
