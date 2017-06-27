@@ -84,16 +84,24 @@ $(document).ready(function () {
         // Display backend result in the dom
         $(".js_EmpInfo").html(data);
 
-        // Get Employee RoleId
-        var RoleId=$("#js_EmpRole").val();
+        // Get Employee info form Controller
+        var RoleId=$("#js_EmpRole").text();
+        var EmpNumber=$("#js_EmpNumberR").text();
+        var FstName=$("#js_FstNmeR").text();
+        var Name=$("#js_empnameR").text();
+
+        // Place Employee info in the Employee details
+        $("#js_empname").val(Name);
+        $("#js_FstNme").val(FstName);
+        $("#js_EmpNumber").val(EmpNumber);
 
         // Iterate over select tag
         $("#js_RolesId").each(function() {
 
           // select the option white the same roelid from employee
           $(this).find('option[value="'+RoleId+'"]').prop('selected', true);
-        });
 
+        });
 
       },
       error:function (xhr) {

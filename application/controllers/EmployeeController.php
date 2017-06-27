@@ -265,22 +265,10 @@ class EmployeeController extends CI_Controller
     // Display Db info
     foreach ($Query->result() as $employee) {
       echo "
-      <div class='input-field col s6'>
-      <input id='js_empname'type='text'placeholder='Employee Name' name='' value='$employee->NameEmp'>
-      <label for='js_empname'></label>
-      </div>
-
-      <div class='input-field col s6'>
-      <input id='js_FstNme'type='text' placeholder='First Name' name='' value='$employee->FstName'>
-      <label for='js_FstNme'></label>
-      </div>
-
-      <div class='input-field col s6'>
-      <input id='js_EmpNumber' type='text'placeholder='Employe Number' name='' value='$employee->NoEmploye'>
-      <label for='js_EmpNumber'></label>
-      </div>
-
-      <input id='js_EmpRole' style='visibility:hidden' type='text' name='' value='$employee->EmployeesRoles_Id'>
+      <span id='js_EmpRole' style='visibility:hidden'>$employee->EmployeesRoles_Id</span>
+      <span id='js_EmpNumberR' style='visibility:hidden'>$employee->NoEmploye</span>
+      <span id='js_FstNmeR' style='visibility:hidden'>$employee->FstName</span>
+      <span id='js_empnameR' style='visibility:hidden'>$employee->NameEmp</span>
       ";
     }
 

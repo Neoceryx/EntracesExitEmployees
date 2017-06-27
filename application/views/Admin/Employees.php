@@ -77,11 +77,22 @@
         <div class="row">
           <form class="col s12">
 
-            <div class="row js_EmpInfo">
-
-            </div>
-
             <div class="row ">
+
+              <div class='input-field col s6'>
+              <input id='js_empname'type='text'placeholder='Employee Name' name='' value='$employee->NameEmp'>
+              <label for='js_empname'></label>
+              </div>
+
+              <div class='input-field col s6'>
+              <input id='js_FstNme'type='text' placeholder='First Name' name='' value='$employee->FstName'>
+              <label for='js_FstNme'></label>
+              </div>
+
+              <div class='input-field col s6'>
+              <input id='js_EmpNumber' type='text'placeholder='Employe Number' name='' value='$employee->NoEmploye'>
+              <label for='js_EmpNumber'></label>
+              </div>
 
               <div class="col s6 ">
                 <label>Employee roles</label>
@@ -93,6 +104,9 @@
               </div>
 
             </div>
+
+            <!-- Display backend results -->
+            <div class="js_EmpInfo"></div>
 
           </form>
         </div>
