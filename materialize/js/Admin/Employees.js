@@ -19,33 +19,51 @@ $(document).ready(function () {
 
     // Get and convert the search string val to lowercase
     var Srchstring=$("#js_SrchString").val().toLowerCase();
-    console.log( typeof(Srchstring) );
 
-    // Iterates over Employees list
-    $(".js_Employee").each(function () {
+    // add or remove deccision class
+    $(this).toggleClass("Search");
 
-      // Get the element
-      var Item=$(this);
+    // Validate if the buttn has show class
+    if ( $(this).hasClass("Search") ) {
 
-      // Get and convert the employees names to lower case
-      var NamesFull=$(this).find(".js_EmpName").text().toLowerCase();
+      // Iterates over Employees list
+      $(".js_Employee").each(function () {
 
-      // Separate the FstNme to the Name
-      var SplitNames=NamesFull.split(" ");
+        // Get the element
+        var Item=$(this);
 
-      // Get only the name part
-      var NamePart=SplitNames[0];
+        // Get and convert the employees names to lower case
+        var NamesFull=$(this).find(".js_EmpName").text().toLowerCase();
 
-      // Validate Employees names
-      if (NamePart != Srchstring) {
+        // Separate the FstNme to the Name
+        var SplitNames=NamesFull.split(" ");
 
-        // Hide the element.
-        Item.hide();
+        // Get only the name part
+        var NamePart=SplitNames[0];
 
-      }
+        // Validate Employees names
+        if (NamePart != Srchstring) {
 
-    });
-    // End each
+          // Hide the element.
+          Item.hide();
+
+        }
+
+      });
+      // End each
+
+      // Change button text
+      $(this).text("Show");
+
+    }else {
+
+      // Makes visible the employees
+      $(".js_Employee").show();
+
+      // Change button text
+      $(this).text("Search");
+
+    }
 
   });
   // End click
