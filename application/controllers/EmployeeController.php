@@ -270,16 +270,20 @@ class EmployeeController extends CI_Controller
       <label for='js_empname'>Employee Name</label>
       </div>
 
-
+      <div class='input-field col s6'>
       <input id='js_FstNme'type='text' name='' value='$employee->FstName'>
       <label for='js_FstNme'>First Name</label>
+      </div>
 
+      <div class='input-field col s6'>
       <input id='js_EmpNumber' type='text' name='' value='$employee->NoEmploye'>
       <label for='js_EmpNumber'>Employe Number</label>
+      </div>
 
+      <div class='input-field col s6'>
       <input id='js_EmpRole' type='text' name='' value='$employee->EmpRole'>
       <label for='js_EmpRole'>EmpRole</label>
-
+      </div>
       ";
     }
 

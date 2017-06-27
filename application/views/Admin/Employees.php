@@ -72,7 +72,15 @@
 
     <!-- Modal Structure -->
     <div id="js_EmpDetail" class="modal modal-fixed-footer">
-      <div class="modal-content js_EmpInfo">
+      <div class="modal-content ">
+
+        <div class="row">
+          <form class="col s12">
+            <div class="row js_EmpInfo">
+
+            </div>
+          </form>
+        </div>
 
       </div>
       <div class="modal-footer">
