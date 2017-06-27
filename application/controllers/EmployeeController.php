@@ -275,6 +275,16 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
+  public function ReturnJson()
+  {
+
+   $sql = 'SELECT * FROM employees';
+   $query = $this->db->query($sql);
+   // Fetch the result array from the result object and return it
+   echo json_encode ($query->result());
+
+  }
+
 }
 // End Class
 

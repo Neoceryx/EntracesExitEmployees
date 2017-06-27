@@ -70,6 +70,15 @@
     </div>
     <!-- End employee list container -->
 
+    <p class="js_t">clickme</p>
+
+    <div class="js_Json">
+      <div class="">
+
+
+      </div>
+    </div>
+
     <!-- Modal Structure -->
     <div id="js_EmpDetail" class="modal modal-fixed-footer">
       <div class="modal-content ">

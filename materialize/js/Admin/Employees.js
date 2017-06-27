@@ -132,6 +132,46 @@ $(document).ready(function () {
   });
   // End click
 
+  $.ajax({
+    type:"GET",
+    url:URL+"EmployeeController/ReturnJson",
+    data:{},
+    success:function (data) {
+
+      // Display result in the dom
+      $(".js_Json").html(data);
+
+      // Parse data in to json
+      var json = $.parseJSON(data);
+
+      // Iterate over json array
+      // $(json).each(function(i,val){
+      //   $.each(val,function(k,v){
+      //
+      //     $(".js_Json").append("<p class='js_t'>"+k+" : "+v+"</p>")
+      //   });
+      // });
+
+      $(json).each(function (i,val) {
+        $(".js_Json").append("<p class='js_t'>"+val.Id+" :: "+ val.NameEmp +"</p>")
+
+      });
+
+
+    },
+    error:function (xhr) {
+
+      alert("Error: " +xhr.responseText);
+
+    }
+  });
+  // End ajax
+
+  // Allows use elements appended
+  $(document).on('click','.js_t', function(){
+  alert("HI");
+  });
+
 
 });
 // End Scope
