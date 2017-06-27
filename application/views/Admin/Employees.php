@@ -76,15 +76,28 @@
 
         <div class="row">
           <form class="col s12">
+
             <div class="row js_EmpInfo">
 
             </div>
+
+            <div class="row ">
+
+              <label>Browser Disabled</label>
+              <select id="js_RolesId" class="browser-default" >
+                <option value=""  selected>Choose the employee role</option>
+                <option value="1">Admin</option>
+                <option value="2">Normal</option>
+              </select>
+
+            </div>
+
           </form>
         </div>
 
       </div>
       <div class="modal-footer">
-        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+        <a id="js_ModifyEmpInfo" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Save Changes</a>
       </div>
     </div>
 

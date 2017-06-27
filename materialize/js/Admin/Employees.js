@@ -68,6 +68,7 @@ $(document).ready(function () {
   });
   // End click
 
+  // Get Employee Detail
   $(".js_Employee").click(function () {
 
     // Get Employe Id
@@ -83,6 +84,17 @@ $(document).ready(function () {
         // Display backend result in the dom
         $(".js_EmpInfo").html(data);
 
+        // Get Employee RoleId
+        var RoleId=$("#js_EmpRole").val();
+
+        // Iterate over select tag
+        $("#js_RolesId").each(function() {
+
+          // select the option white the same roelid from employee
+          $(this).find('option[value="'+RoleId+'"]').prop('selected', true);
+        });
+
+
       },
       error:function (xhr) {
 
@@ -96,6 +108,12 @@ $(document).ready(function () {
     $('#js_EmpDetail').modal('open');
 
   });
+
+  // Update Employee Info
+  $("#js_ModifyEmpInfo").click(function () {
+    alert("HI");    
+  });
+
 
 });
 // End Scope
