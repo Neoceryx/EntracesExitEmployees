@@ -3,6 +3,9 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
+  // it will get employee id
+  var EMployeId="";
+
   // Redirect to Employee Details View
   $(".js_Employee").click(function () {
 
@@ -72,7 +75,7 @@ $(document).ready(function () {
   $(".js_Employee").click(function () {
 
     // Get Employe Id
-    var EMployeId= $(this).data("empid");
+    EMployeId= $(this).data("empid");
 
     // Start ajax
     $.ajax({
@@ -120,6 +123,8 @@ $(document).ready(function () {
   // Update Employee Info
   $("#js_ModifyEmpInfo").click(function () {
 
+    // Display Employee id
+    alert(EMployeId);
 
     // Close modal
     $('#js_EmpDetail').modal('close');
