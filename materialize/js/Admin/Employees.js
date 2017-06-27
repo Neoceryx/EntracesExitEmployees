@@ -68,12 +68,13 @@ $(document).ready(function () {
   });
   // End click
 
-  $(".js_EmpName").click(function () {
+  $(".js_Employee").click(function () {
 
     // Get Employe Id
+    var EMployeId= $(this).data("empid");
 
     // Open modal
-    $('#modal1').modal('open');
+    $('#js_EmpDetail').modal('open');
 
   });
 

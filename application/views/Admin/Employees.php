@@ -44,20 +44,25 @@
     <div class="row js_EmpList">
 
       <?php foreach ($EMPLOYE->result() as $employe) {?>
-        <div class='col s12 m4 l4'>
-          <div class='card-panel grey lighten-5 z-depth-1 js_Employee' data-id="<?=$employe->EmpId?>">
-            <div class='row valign-wrapper'>
-              <div class='col s4'>
-                <img src='http://blog.chemistry.com/wp-content/uploads/2012/09/man-smiling.jpg' alt='' class='circle responsive-img'>
+        <div class="col s12 m4 l4 js_Employee" data-empid="<?=$employe->EmpId?>">
+          <div class="card-panel grey lighten-5 z-depth-1">
+
+            <div class="row valign-wrapper">
+
+              <div class="col s4">
+                <img src="http://blog.chemistry.com/wp-content/uploads/2012/09/man-smiling.jpg" alt="" class="circle responsive-img">
               </div>
-              <div class='col s8'>
-                <span class='black-text'>
-                  <div class="js_EmpName"><?=$employe->NameEmp." ".$employe->FstName?></div>
+
+              <div class="col s8">
+                <span class="black-text">
+                  <div class="js_EmpName" ><?=$employe->NameEmp." ".$employe->FstName?></div>
                   <div><?=$employe->NoEmploye?></div>
                   <div><?=$employe->Desc?></div>
                 </span>
               </div>
+
             </div>
+
           </div>
         </div>
       <?php } ?>
@@ -66,10 +71,10 @@
     <!-- End employee list container -->
 
     <!-- Modal Structure -->
-    <div id="modal1" class="modal modal-fixed-footer">
+    <div id="js_EmpDetail" class="modal modal-fixed-footer">
       <div class="modal-content">
         <h4>Modal Header</h4>
-        <p>A bunch of text</p>
+        <p id="js_idem">A bunch of text</p>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
