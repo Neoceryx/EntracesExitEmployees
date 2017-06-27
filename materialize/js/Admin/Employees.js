@@ -68,5 +68,14 @@ $(document).ready(function () {
   });
   // End click
 
+  $(".js_EmpName").click(function () {
+
+    // Get Employe Id
+
+    // Open modal
+    $('#modal1').modal('open');
+
+  });
+
 });
 // End Scope
