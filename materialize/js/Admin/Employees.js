@@ -73,6 +73,25 @@ $(document).ready(function () {
     // Get Employe Id
     var EMployeId= $(this).data("empid");
 
+    // Start ajax
+    $.ajax({
+      type:"POST",
+      url:URL+"EmployeeController/GetEmployeInfo",
+      data:{EMPID:EMployeId},
+      success:function (data) {
+
+        // Display backend result in the dom
+        $(".js_EmpInfo").html(data);
+
+      },
+      error:function (xhr) {
+
+        alert("Error: " +xhr.responseText);
+
+      }
+    });
+    // End ajax
+
     // Open modal
     $('#js_EmpDetail').modal('open');
 

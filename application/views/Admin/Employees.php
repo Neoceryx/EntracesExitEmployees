@@ -72,9 +72,8 @@
 
     <!-- Modal Structure -->
     <div id="js_EmpDetail" class="modal modal-fixed-footer">
-      <div class="modal-content">
-        <h4>Modal Header</h4>
-        <p id="js_idem">A bunch of text</p>
+      <div class="modal-content js_EmpInfo">
+
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>

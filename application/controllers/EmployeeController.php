@@ -246,6 +246,45 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
+  public function GetEmployeInfo()
+  {
+
+    // Revice Employee Id from ajax call
+    $EmpId=$this->input->post("EMPID");
+    // echo $EmpId;
+
+    // Build the query
+    $this->db->select("NameEmp,FstName,NoEmploye,employeesRoles.Description as EmpRole");
+    $this->db->from("employees");
+    $this->db->join("employeesRoles","EmployeesRoles_Id = employeesRoles.Id");
+    $this->db->where("employees.Id",$EmpId);
+
+    // Prepare query to be executed
+    $Query=$this->db->get();
+
+    // Display Db info
+    foreach ($Query->result() as $employee) {
+      echo "
+      <div class='input-field col s6'>
+      <input id='js_empname'type='text'placeholder='Name' name='' value='$employee->NameEmp'>
+      <label for='js_empname'>Employee Name</label>
+      </div>
+
+
+      <input id='js_FstNme'type='text' name='' value='$employee->FstName'>
+      <label for='js_FstNme'>First Name</label>
+
+      <input id='js_EmpNumber' type='text' name='' value='$employee->NoEmploye'>
+      <label for='js_EmpNumber'>Employe Number</label>
+
+      <input id='js_EmpRole' type='text' name='' value='$employee->EmpRole'>
+      <label for='js_EmpRole'>EmpRole</label>
+
+      ";
+    }
+
+  }
+  // End function
 
 }
 // End Class
