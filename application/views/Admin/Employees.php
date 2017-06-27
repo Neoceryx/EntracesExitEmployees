@@ -74,6 +74,8 @@
     <div id="js_EmpDetail" class="modal modal-fixed-footer">
       <div class="modal-content ">
 
+        <h4>Employee Information</h4>
+
         <div class="row">
           <form class="col s12">
 

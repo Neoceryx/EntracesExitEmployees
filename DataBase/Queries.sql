@@ -180,3 +180,17 @@ inner join employeesRoles on (EmployeesRoles_Id = employeesRoles.Id )
 end //
 -- ===================================== Get Employes =====================================
 
+-- ===================================== Get Employee info =====================================
+
+-- 
+select NameEmp,FstName,NoEmploye, employeesRoles.Description from employees
+INNER JOIN employeesRoles on ( EmployeesRoles_Id = employeesRoles.Id )
+where (employees.Id=1);
+
+-- ===================================== Get Employee info =====================================
+
+update employees
+set NameEmp = 'Carlos'
+where(Id = 5);
+
+select * from employees where (Id =5)
