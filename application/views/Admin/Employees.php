@@ -52,9 +52,9 @@
               </div>
               <div class='col s8'>
                 <span class='black-text'>
-                  <p class="js_EmpName"><?=$employe->NameEmp." ".$employe->FstName?></p>
-                  <p><?=$employe->NoEmploye?></p>
-                  <p><?=$employe->Desc?></p>
+                  <div class="js_EmpName"><?=$employe->NameEmp." ".$employe->FstName?></div>
+                  <div><?=$employe->NoEmploye?></div>
+                  <div><?=$employe->Desc?></div>
                 </span>
               </div>
             </div>
@@ -64,9 +64,6 @@
 
     </div>
     <!-- End employee list container -->
-
-    <input id="sortpicture" type="file" name="sortpic" />
-<button id="upload">Upload</button>
 
   </body>
 
