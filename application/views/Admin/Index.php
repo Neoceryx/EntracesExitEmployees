@@ -44,11 +44,28 @@
             <i class="material-icons large">&#xE853;</i>
           </p>
 
-          <h4 class="white-text center-align">Register Employees</h4>
+          <h4 class="white-text center-align">New Employees</h4>
 
         </div>
       </div>
       <!-- End Register Employee Card -->
+
+      <!-- Start Employees list Card -->
+      <div id="js_Emp" class="col s12 m4 l4">
+        <div class="card-panel teal">
+
+          <!-- Icon -->
+          <p class="white-text center-align" >
+            <i class="material-icons large">&#xE853;</i>
+          </p>
+
+          <!-- Tittle -->
+          <h4 class="white-text center-align">Employees</h4>
+
+        </div>
+      </div>
+      <!-- End Employees list Card -->
+
 
     </div>
     <!-- End Content -->

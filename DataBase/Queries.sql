@@ -156,7 +156,9 @@ create procedure GetEmployees( EmpNumber varchar(50) )
 
 begin
 
-select * from employees where (NoEmploye=EmpNumber);
+select employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description from employees
+inner join employeesRoles on (EmployeesRoles_Id = employeesRoles.Id )
+where( EmpNumber=NoEmploye );
 
 end//
 
@@ -167,7 +169,28 @@ call GetEmployees('1234');
 DROP PROCEDURE IF EXISTS GetEmployees;
 -- ===================================== Stores procedures =====================================
 
-delimiter // -- asd
+-- ===================================== Get Employes =====================================
+describe employees;
+describe employeesRoles;
+
+delimiter // -- Get Employe Info
 begin
-select * from employees;
+select employees.Id, NameEmp, FstName, NoEmploye, employeesRoles.Description from employees
+inner join employeesRoles on (EmployeesRoles_Id = employeesRoles.Id )
 end //
+-- ===================================== Get Employes =====================================
+
+-- ===================================== Get Employee info =====================================
+
+-- 
+select NameEmp,FstName,NoEmploye, employeesRoles.Description from employees
+INNER JOIN employeesRoles on ( EmployeesRoles_Id = employeesRoles.Id )
+where (employees.Id=1);
+
+-- ===================================== Get Employee info =====================================
+
+update employees
+set NameEmp = 'Carlos'
+where(Id = 5);
+
+select * from employees where (Id =5)

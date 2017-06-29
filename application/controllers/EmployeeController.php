@@ -222,6 +222,69 @@ class EmployeeController extends CI_Controller
   }
   // End function
 
+  public function EmployeesView()
+  {
+
+    // Load css files
+    $this->load->view('Template\css');
+
+    // Load the Admin navbar
+    $this->load->view("Admin/navbar");
+
+    // Load the model
+    $this->load->model("Employees");
+
+    // Store method result.Access to the method that return employe list
+    $Result=$this->Employees->GetEmpList();
+
+    // Create asosiative array
+    $Data = array('EMPLOYE' => $Result );
+
+    // Load the view. Whit the Employees info
+    $this->load->view("Admin\Employees",$Data);
+
+  }
+  // End function
+
+  public function GetEmployeInfo()
+  {
+
+    // Revice Employee Id from ajax call
+    $EmpId=$this->input->post("EMPID");
+    // echo $EmpId;
+
+    // Build the query
+    $this->db->select("NameEmp,FstName,NoEmploye,employeesRoles.Description as EmpRole, EmployeesRoles_Id");
+    $this->db->from("employees");
+    $this->db->join("employeesRoles","EmployeesRoles_Id = employeesRoles.Id");
+    $this->db->where("employees.Id",$EmpId);
+
+    // Prepare query to be executed
+    $Query=$this->db->get();
+
+    // Display Db info
+    foreach ($Query->result() as $employee) {
+      echo "
+      <span id='js_EmpRole' style='visibility:hidden'>$employee->EmployeesRoles_Id</span>
+      <span id='js_EmpNumberR' style='visibility:hidden'>$employee->NoEmploye</span>
+      <span id='js_FstNmeR' style='visibility:hidden'>$employee->FstName</span>
+      <span id='js_empnameR' style='visibility:hidden'>$employee->NameEmp</span>
+      ";
+    }
+
+  }
+  // End function
+
+  public function ReturnJson()
+  {
+
+   $sql = 'SELECT * FROM employees';
+   $query = $this->db->query($sql);
+   // Fetch the result array from the result object and return it
+   echo json_encode ($query->result());
+
+  }
+
 }
 // End Class
 
