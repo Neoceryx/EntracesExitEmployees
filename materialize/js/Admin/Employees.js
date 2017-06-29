@@ -187,10 +187,13 @@ $(document).ready(function () {
         // Validate if the button has the class
         if ( Item.hasClass("QrCreated") ) {
 
+          // Initilize the variable
+          var qrcode="";
+
           {  /* Region Create Qr Code */
 
             // Creates Qr code in the dom whit the Employee number
-            var qrcode = new QRCode("js_QrCode", {
+            qrcode = new QRCode("js_QrCode", {
                 text: EmpNumber,
                 width: 170,
                 height: 170,
@@ -201,25 +204,32 @@ $(document).ready(function () {
 
           } /* End  Region*/
 
+          { /* Region Convert div in to img */
+
+            // Convert div in to png
+            html2canvas(element, {
+              onrendered: function (canvas) {
+
+                // Display a preview
+                // $("#js_QrCode").append(canvas);
+
+                // store canvas
+                getCanvas = canvas;
+
+              }
+            });
+
+          } /* End Region */
+
+          // Change button text
+          $(this).text("DownLoad");
+
         }else {
 
-          { /* Region Convert Dom element to image */
-
-              // Convert div in to png
-              html2canvas(element, {
-                onrendered: function (canvas) {
-
-                  // Display a preview
-                  // $("#js_QrCode").append(canvas);
-
-                  // store canvas
-                  getCanvas = canvas;
-
-                }
-              });
+          { /* Region Download Qr Generated */
 
               // Set donload folder
-              var imgageData = getCanvas.toDataURL("");
+              var imgageData = getCanvas.toDataURL("image/png");
 
               // Now browser starts downloading it instead of just showing it
               var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
@@ -228,6 +238,12 @@ $(document).ready(function () {
               $("#js_CreateQr").attr("download", EmName+".png").attr("href", newData);
 
           } /* End Region */
+
+          // clear the code.
+          $("#js_QrCode").empty();
+
+          // Change button text
+          $(this).text("Create QrCode");
 
         }
 
