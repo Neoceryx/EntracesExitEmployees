@@ -175,31 +175,55 @@ $(document).ready(function () {
         // Get Employee number
         var EmpNumber=$("#js_EmpNumber").val();
 
-        {  /* Region Create Qr Code */
+        // Get Employee name and first name
+        var EmName=$("#js_empname").val() +" "+ $("#js_FstNme").val();
+        debugger;
 
-          // Creates Qr code in the dom whit the Employee number
-          new QRCode(document.getElementById("js_QrCode"), EmpNumber);
+        // Get elemt
+        var Item=$(this);
 
-        } /* End  Region*/
+        // Add or remove class
+        Item.toggleClass("QrCreated");
 
-        { /* Region Convert Dom element to image */
+        // Validate if the button has the class
+        if ( Item.hasClass("QrCreated") ) {
 
-            // Convert div in to png
-            html2canvas(element, {
-              onrendered: function (canvas) {
-                $("#js_QrCode").append(canvas);
-                getCanvas = canvas;
-              }
-            });
+          {  /* Region Create Qr Code */
 
-            // Set donload folder
-            var imgageData = getCanvas.toDataURL("");
+            // Creates Qr code in the dom whit the Employee number
+            new QRCode(document.getElementById("js_QrCode"), EmpNumber);
 
-            // Now browser starts downloading it instead of just showing it
-            var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-            $("#js_CreateQr").attr("download", "your_pic_name.png").attr("href", newData);
+          } /* End  Region*/
 
-        } /* End Region */
+        }else {
+
+          { /* Region Convert Dom element to image */
+
+              // Convert div in to png
+              html2canvas(element, {
+                onrendered: function (canvas) {
+
+                  // Display a preview
+                  // $("#js_QrCode").append(canvas);
+
+                  // store canvas
+                  getCanvas = canvas;
+
+                }
+              });
+
+              // Set donload folder
+              var imgageData = getCanvas.toDataURL("");
+
+              // Now browser starts downloading it instead of just showing it
+              var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+
+              // Downloa the img whit the employee name
+              $("#js_CreateQr").attr("download", EmName+".png").attr("href", newData);
+
+          } /* End Region */
+
+        }
 
       });
       // End click

@@ -126,7 +126,7 @@
       </div>
       <div class="modal-footer">
         <a id="js_ModifyEmpInfo" href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
-        <a id="js_CreateQr" href="#!" class="waves-effect waves-green btn-flat ">Download QR Code</a>
+        <a id="js_CreateQr" href="#!" class="waves-effect waves-green btn-flat ">Create QrCode</a>
       </div>
     </div>
 
