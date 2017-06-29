@@ -166,6 +166,30 @@ $(document).ready(function () {
   //
   // });
 
+  // Qr Creates
+  var element = $("#js_qrtes"); // global variable
+  var getCanvas; // global variable
+
+      $("#js_CreateQr").on('click', function () {
+
+        // Convert div in to png
+        html2canvas(element, {
+          onrendered: function (canvas) {
+            $(".js_pre").append(canvas);
+            getCanvas = canvas;
+          }
+        });
+
+        // Set donload folder
+        var imgageData = getCanvas.toDataURL("");
+
+        // Now browser starts downloading it instead of just showing it
+        var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+        $("#js_CreateQr").attr("download", "your_pic_name.png").attr("href", newData);
+
+      });
+      // End click
+
 
 });
 // End Scope

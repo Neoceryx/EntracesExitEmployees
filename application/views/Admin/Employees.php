@@ -119,12 +119,21 @@
             <!-- Display backend results -->
             <div class="js_EmpInfo"></div>
 
+            <div id="js_qrtes" class="red">
+              asd
+            </div>
+
+            <div class="js_pre">
+
+            </div>
+
           </form>
         </div>
 
       </div>
       <div class="modal-footer">
         <a id="js_ModifyEmpInfo" href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
+        <a id="js_CreateQr" href="#!" class="waves-effect waves-green btn-flat ">Download QR Code</a>
       </div>
     </div>
 
@@ -138,6 +147,9 @@
 
   <!-- Animation Framework -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
+
+  <!--  -->
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
 
   <!-- Aditional js files -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\Employees.js")?>"></script>
