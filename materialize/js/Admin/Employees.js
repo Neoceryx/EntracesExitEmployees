@@ -177,7 +177,6 @@ $(document).ready(function () {
 
         // Get Employee name and first name
         var EmName=$("#js_empname").val() +" "+ $("#js_FstNme").val();
-        debugger;
 
         // Get elemt
         var Item=$(this);
@@ -191,7 +190,14 @@ $(document).ready(function () {
           {  /* Region Create Qr Code */
 
             // Creates Qr code in the dom whit the Employee number
-            new QRCode(document.getElementById("js_QrCode"), EmpNumber);
+            var qrcode = new QRCode("js_QrCode", {
+                text: EmpNumber,
+                width: 170,
+                height: 170,
+                colorDark : "#000000",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
 
           } /* End  Region*/
 
