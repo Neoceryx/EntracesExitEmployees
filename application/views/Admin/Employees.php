@@ -70,7 +70,7 @@
     </div>
     <!-- End employee list container -->
 
-    <p class="js_t">clickme</p>
+    <!-- <p class="js_t">clickme</p> -->
 
     <div class="js_Json">
       <div class="">
