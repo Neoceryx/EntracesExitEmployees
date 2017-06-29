@@ -167,25 +167,39 @@ $(document).ready(function () {
   // });
 
   // Qr Creates
-  var element = $("#js_qrtes"); // global variable
+  var element = $("#js_QrCode"); // global variable
   var getCanvas; // global variable
 
       $("#js_CreateQr").on('click', function () {
 
-        // Convert div in to png
-        html2canvas(element, {
-          onrendered: function (canvas) {
-            $(".js_pre").append(canvas);
-            getCanvas = canvas;
-          }
-        });
+        // Get Employee number
+        var EmpNumber=$("#js_EmpNumber").val();
 
-        // Set donload folder
-        var imgageData = getCanvas.toDataURL("");
+        {  /* Region Create Qr Code */
 
-        // Now browser starts downloading it instead of just showing it
-        var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-        $("#js_CreateQr").attr("download", "your_pic_name.png").attr("href", newData);
+          // Creates Qr code in the dom whit the Employee number
+          new QRCode(document.getElementById("js_QrCode"), EmpNumber);
+
+        } /* End  Region*/
+
+        { /* Region Convert Dom element to image */
+
+            // Convert div in to png
+            html2canvas(element, {
+              onrendered: function (canvas) {
+                $("#js_QrCode").append(canvas);
+                getCanvas = canvas;
+              }
+            });
+
+            // Set donload folder
+            var imgageData = getCanvas.toDataURL("");
+
+            // Now browser starts downloading it instead of just showing it
+            var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
+            $("#js_CreateQr").attr("download", "your_pic_name.png").attr("href", newData);
+
+        } /* End Region */
 
       });
       // End click

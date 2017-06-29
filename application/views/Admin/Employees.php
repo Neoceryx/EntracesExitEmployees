@@ -74,8 +74,6 @@
 
     <div class="js_Json">
       <div class="">
-
-
       </div>
     </div>
 
@@ -119,13 +117,8 @@
             <!-- Display backend results -->
             <div class="js_EmpInfo"></div>
 
-            <div id="js_qrtes" class="red">
-              asd
-            </div>
-
-            <div class="js_pre">
-
-            </div>
+            <!-- it will Display the qr generated -->
+            <div id="js_QrCode"></div>
 
           </form>
         </div>
@@ -148,8 +141,11 @@
   <!-- Animation Framework -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
 
-  <!--  -->
+  <!-- html2canvas plugin -->
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
+
+  <!-- Qr Generator plugin -->
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\qrcodejs\qrcode.js")?>"></script>
 
   <!-- Aditional js files -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\Employees.js")?>"></script>
