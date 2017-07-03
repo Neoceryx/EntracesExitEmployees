@@ -24,7 +24,6 @@
     <!-- End Navbar -->
 
     <h3 class="center-align">Shift Entrances and exits</h3>
-    <!-- <a href="<?=site_url('EmployeeController/test/123')?>">TesMethod</a> -->
 
 
     <div class="row">
@@ -85,14 +84,15 @@
 
 
   <!-- Materialize js Files -->
-  <script type="text/javascript" src="materialize\js\materialize.min.js"></script>
-
-  <!-- Aditional js -->
-  <script src="materialize\js\EntrancesExtis.js" charset="utf-8"></script>
+  <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
 
   <!-- Codes Decoder js files -->
-  <script type="text/javascript" src="materialize\Plugins\webcodecamjs-master\js\qrcodelib.js"></script>
-  <script type="text/javascript" src="materialize\Plugins\webcodecamjs-master\js\webcodecamjquery.js"></script>
+  <script type="text/javascript" src="<?=base_url('materialize\Plugins\webcodecamjs-master\js\qrcodelib.js')?>"></script>
+  <script type="text/javascript" src="<?=base_url('materialize\Plugins\webcodecamjs-master\js\webcodecamjquery.js')?>"></script>
+
+  <!-- Aditional js -->
+  <script src="<?=base_url('materialize\js\EntrancesExtis.js')?>" charset="utf-8"></script>
+
 
 
 

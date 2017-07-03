@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
+  let URL="http://192.168.1.86/EntracesExitEmployees/index.php/";
 
   // Emuns
   var LOGIN={ISTRUE:1, ISADMIN:1, ISNORMAL:2};
