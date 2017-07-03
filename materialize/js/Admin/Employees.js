@@ -184,68 +184,18 @@ $(document).ready(function () {
         // Add or remove class
         Item.toggleClass("QrCreated");
 
-        // Validate if the button has the class
-        if ( Item.hasClass("QrCreated") ) {
+        // Creates Qr
+        var qr = new QRious({
+          element: document.getElementById('js_QrCode'),
+          value:EmpNumber,
+          size: 170,
+        });
 
-          // Initilize the variable
-          var qrcode="";
+        // Generates a vaalid img path
+        var ImgPath=qr.toDataURL('image/jpeg');
 
-          {  /* Region Create Qr Code */
-
-            // Creates Qr code in the dom whit the Employee number
-            qrcode = new QRCode("js_QrCode", {
-                text: EmpNumber,
-                width: 170,
-                height: 170,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
-
-          } /* End  Region*/
-
-          { /* Region Convert div in to img */
-
-            // Convert div in to png
-            html2canvas(element, {
-              onrendered: function (canvas) {
-
-                // Display a preview
-                // $("#js_QrCode").append(canvas);
-
-                // store canvas
-                getCanvas = canvas;
-
-              }
-            });
-
-          } /* End Region */
-
-          // Change button text
-          $(this).text("DownLoad");
-
-        }else {
-
-          { /* Region Download Qr Generated */
-
-              // Set donload folder
-              var imgageData = getCanvas.toDataURL("image/png");
-
-              // Now browser starts downloading it instead of just showing it
-              var newData = imgageData.replace(/^data:image\/png/, "data:application/octet-stream");
-
-              // Downloa the img whit the employee name
-              $("#js_CreateQr").attr("download", EmName+".png").attr("href", newData);
-
-          } /* End Region */
-
-          // clear the code.
-          $("#js_QrCode").empty();
-
-          // Change button text
-          $(this).text("Create QrCode");
-
-        }
+        // Add download attr and add the img pathin href attr. to allow downlad the qr code
+        Item.attr('download',EmName).attr('href',ImgPath);
 
       });
       // End click
