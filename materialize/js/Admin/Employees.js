@@ -3,8 +3,18 @@ $(document).ready(function () {
   // Set the main path on the server
   let URL="http://localhost/EntracesExitEmployees/index.php/"
 
+{ /* Region Variables */
+
   // it will get employee id
   var EMployeId="";
+
+  // Initialize the varible to will storage the img path
+  var ImgPath="";
+
+  // Initialize the varible that will create the Qr code
+  var QrCode="";
+
+} /* End Region */
 
   // Redirect to Employee Details View
   $(".js_Employee").click(function () {
@@ -166,10 +176,6 @@ $(document).ready(function () {
   //
   // });
 
-  // Qr Creates
-  var element = $("#js_QrCode"); // global variable
-  var getCanvas; // global variable
-
       $("#js_CreateQr").on('click', function () {
 
         // Get Employee number
@@ -184,18 +190,43 @@ $(document).ready(function () {
         // Add or remove class
         Item.toggleClass("QrCreated");
 
-        // Creates Qr
-        var qr = new QRious({
-          element: document.getElementById('js_QrCode'),
-          value:EmpNumber,
-          size: 170,
-        });
+        // Validate if the button has QrCreated class
+        if ( Item.hasClass("QrCreated") ) {
 
-        // Generates a vaalid img path
-        var ImgPath=qr.toDataURL('image/jpeg');
+          // Creates Qr
+          QrCode = new QRious({
+            element: document.getElementById('js_QrCode'),
+            value:EmpNumber,
+            size: 170,
+          });
+          // End Qr creation
 
-        // Add download attr and add the img pathin href attr. to allow downlad the qr code
-        Item.attr('download',EmName).attr('href',ImgPath);
+          // Change btn text
+          Item.text("Download Qr Code");
+
+          // Remove download attr. and clear href attr
+          Item.removeAttr('download').attr('href','#!');;
+
+          // Display canvas.
+          $("#js_QrCode").show();
+
+        }else {
+
+          // Generates a vaalid img path
+          ImgPath=QrCode.toDataURL('image/jpeg');
+
+          // Add download attr and add the img pathin href attr. to allow downlad the qr code
+          Item.attr('download',EmName).attr('href',ImgPath);
+
+          // Change Btn Text
+          Item.text("Create QrCode");
+
+          // Hide canvas.
+          $("#js_QrCode").hide();
+
+        }
+        // End Validation
+
 
       });
       // End click
