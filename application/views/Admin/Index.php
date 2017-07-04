@@ -14,8 +14,8 @@
         <!-- Display Employee Name -->
         <?php echo $employe->NameEmp ?>
 
-      <?php } ?>
-       <!-- End foreach -->
+        <?php } ?>
+        <!-- End foreach -->
 
     </h3>
 
