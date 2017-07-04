@@ -74,8 +74,6 @@
 
     <div class="js_Json">
       <div class="">
-
-
       </div>
     </div>
 
@@ -119,12 +117,17 @@
             <!-- Display backend results -->
             <div class="js_EmpInfo"></div>
 
+            <!-- it will Display the qr generated -->
+            <canvas id="js_QrCode"></canvas>
+
+
           </form>
         </div>
 
       </div>
       <div class="modal-footer">
         <a id="js_ModifyEmpInfo" href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
+        <a id="js_CreateQr" href="#!" class="waves-effect waves-green btn-flat" >Create QrCode</a>
       </div>
     </div>
 
@@ -138,6 +141,9 @@
 
   <!-- Animation Framework -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Main.js")?>"></script>
+
+  <!-- Qr Generator plugin -->
+  <script type="text/javascript" src="<?=base_url("materialize\Plugins\qrious\qrious.js")?>"></script>
 
   <!-- Aditional js files -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\Employees.js")?>"></script>

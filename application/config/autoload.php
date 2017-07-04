@@ -93,7 +93,7 @@ $autoload['drivers'] = array();
 */
 
 // Allow use base_url() method to work whit routes
-$autoload['helper'] = array('url','html');
+$autoload['helper'] = array('url');
 
 /*
 | -------------------------------------------------------------------

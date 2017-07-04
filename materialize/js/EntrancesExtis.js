@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
   // Set the main path on the server
-  let URL="http://192.168.1.86/EntracesExitEmployees/index.php/";
+  let URL="http://localhost/EntracesExitEmployees/index.php/"
 
   // Display the Entrances and Exits Employees
   GetCurrentEntrancesExits();
