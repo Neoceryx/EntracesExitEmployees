@@ -1,10 +1,8 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
-
   $("#js_EntraceReport").click(function () {
 
+    // Get URL val from the view. and redirect user to the mehtod in the EmployeeController
     window.location.href=URL+"EmployeeController/EntranceReport"
 
   });
