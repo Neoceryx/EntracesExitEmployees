@@ -83,29 +83,41 @@
 
         <h4>Employee Information</h4>
 
+        <!-- Start Edit Options -->
+
+        <a class="dropdown-button btn" data-activates='EmpOptions'>
+          <i class="material-icons">&#xE8B8;</i>
+        </a>
+
+        <ul id="EmpOptions" class='dropdown-content'>
+          <li><a id="js_Edit" href="#">Edit</a></li>
+          <li><a id="is_Delete" href="#">Delete</a></li>
+        </ul>
+        <!-- End Edit Options -->
+
         <div class="row">
           <form class="col s12">
 
             <div class="row ">
 
               <div class='input-field col s6'>
-              <input id='js_empname'type='text'placeholder='Employee Name' name='' value='$employee->NameEmp'>
+              <input id='js_empname' disabled  type='text'placeholder='Employee Name' name='' value='$employee->NameEmp'>
               <label for='js_empname'></label>
               </div>
 
               <div class='input-field col s6'>
-              <input id='js_FstNme'type='text' placeholder='First Name' name='' value='$employee->FstName'>
+              <input id='js_FstNme' disabled  type='text' placeholder='First Name' name='' value='$employee->FstName'>
               <label for='js_FstNme'></label>
               </div>
 
               <div class='input-field col s6'>
-              <input id='js_EmpNumber' type='text'placeholder='Employe Number' name='' value='$employee->NoEmploye'>
+              <input id='js_EmpNumber' disabled  type='text'placeholder='Employe Number' name='' value='$employee->NoEmploye'>
               <label for='js_EmpNumber'></label>
               </div>
 
               <div class="col s6 ">
                 <label>Employee roles</label>
-                <select id="js_RolesId" class="browser-default" >
+                <select id="js_RolesId" disabled  class="browser-default" >
                   <option value=""  selected>Choose the employee role</option>
                   <option value="1">Admin</option>
                   <option value="2">Normal</option>
@@ -144,6 +156,13 @@
 
   <!-- Qr Generator plugin -->
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\qrious\qrious.js")?>"></script>
+
+  <script type="text/javascript">
+
+    // Storage the server path
+    let URL="<?=base_url('index.php/')?>"
+
+  </script>
 
   <!-- Aditional js files -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\Employees.js")?>"></script>
