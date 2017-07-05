@@ -15,6 +15,7 @@
 
         <!-- Start NavBar Links -->
         <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="<?=site_url('PermisonsController/Index')?>">Produccion Permisons</a></li>
           <li><a href="<?=site_url('LoginController/index')?>">Login</a></li>
         </ul>
         <!-- End Navbar Links -->
