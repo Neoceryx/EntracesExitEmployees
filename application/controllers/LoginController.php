@@ -111,5 +111,17 @@ class LoginController extends CI_Controller
 
   }
 
+  public function EmployeeDashBoard()
+  {
+
+    // Load the Css Files.
+    $this->load->view('Template\css.php');
+
+    // Return View
+    $this->load->view('Employees\Index.php');
+
+  }
+  // End function
+
 }
  ?>

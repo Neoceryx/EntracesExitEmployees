@@ -60,9 +60,10 @@ $(document).ready(function () {
             if (LoginValSeparated[LOGINARRAY.SES] == LOGIN.ISTRUE && LoginValSeparated[LOGINARRAY.EMPPART]==LOGIN.ISNORMAL) {
 
               // Redirect user to NormalUser view
+              window.location.href=URL+"LoginController/EmployeeDashBoard";
 
               // Display User Notification
-              alertify.notify('Welcome Normal User', 'success', 2,);
+              // alertify.notify('Welcome Normal User', 'success', 2,);
 
             }
 
