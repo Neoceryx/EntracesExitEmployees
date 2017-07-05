@@ -306,6 +306,17 @@ class EmployeeController extends CI_Controller
 
     // echo $EmpId." : ".$EmpName." :: ". $EmpSurname." :: ".$EmpNumber." :: ".$RoleId;
 
+    // Builf the query
+    $this->db->set("NameEmp", $EmpName);
+    $this->db->set("FstName", $EmpSurname);
+    $this->db->set("NoEmploye", $EmpNumber);
+    $this->db->set("EmployeesRoles_Id", $RoleId);
+    $this->db->where("Id", $EmpId);
+
+    // Executes the query
+    $this->db->update("employees");
+
+
   }
 
 }
