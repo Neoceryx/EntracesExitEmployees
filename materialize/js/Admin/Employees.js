@@ -132,11 +132,46 @@ $(document).ready(function () {
   // Update Employee Info
   $("#js_ModifyEmpInfo").click(function () {
 
-    // Display Employee id
-    alert(EMployeId);
+    // Get Employee Id
+    EMployeId
+
+    // Get Employe Name
+    var Name = $("#js_empname").val();
+
+    // Get Employee surname
+    var Fname=$("#js_FstNme").val();
+
+    // Get Employee Number
+    var EmpNumber=$("#js_EmpNumber").val();
+
+    // Get Employee RoleId
+    var EmpRole=$("#js_RolesId").val();
+
+    // disable fields to avoid edit employee info
+    $('.js_EmpInfoForm').find("input").attr('disabled','disabled')
+
+    // disable select tag
+    $("#js_RolesId").attr("disabled","disabled");
+
+    // Start ajax
+    $.ajax({
+      type:"POST",
+      url:URL+"",
+      data:{},
+      success:function () {
+
+      },
+      error:function (xhr) {
+
+        alert("Error: " +xhr.responseText);
+
+      }
+    })
+    // End ajax
+
 
     // Close modal
-    $('#js_EmpDetail').modal('close');
+    // $('#js_EmpDetail').modal('close');
 
   });
   // End click
@@ -175,60 +210,85 @@ $(document).ready(function () {
   //
   // });
 
-      $("#js_CreateQr").on('click', function () {
+  $("#js_CreateQr").on('click', function () {
 
-        // Get Employee number
-        var EmpNumber=$("#js_EmpNumber").val();
+    // Get Employee number
+    var EmpNumber=$("#js_EmpNumber").val();
 
-        // Get Employee name and first name
-        var EmName=$("#js_empname").val() +" "+ $("#js_FstNme").val();
+    // Get Employee name and first name
+    var EmName=$("#js_empname").val() +" "+ $("#js_FstNme").val();
 
-        // Get elemt
-        var Item=$(this);
+    // Get elemt
+    var Item=$(this);
 
-        // Add or remove class
-        Item.toggleClass("QrCreated");
+    // Add or remove class
+    Item.toggleClass("QrCreated");
 
-        // Validate if the button has QrCreated class
-        if ( Item.hasClass("QrCreated") ) {
+    // Validate if the button has QrCreated class
+    if ( Item.hasClass("QrCreated") ) {
 
-          // Creates Qr
-          QrCode = new QRious({
-            element: document.getElementById('js_QrCode'),
-            value:EmpNumber,
-            size: 170,
-          });
-          // End Qr creation
-
-          // Change btn text
-          Item.text("Download Qr Code");
-
-          // Remove download attr. and clear href attr
-          Item.removeAttr('download').attr('href','#!');;
-
-          // Display canvas.
-          $("#js_QrCode").show();
-
-        }else {
-
-          // Generates a vaalid img path
-          ImgPath=QrCode.toDataURL('image/jpeg');
-
-          // Add download attr and add the img pathin href attr. to allow downlad the qr code
-          Item.attr('download',EmName).attr('href',ImgPath);
-
-          // Change Btn Text
-          Item.text("Create QrCode");
-
-          // Hide canvas.
-          $("#js_QrCode").hide();
-
-        }
-        // End Validation
-
-
+      // Creates Qr
+      QrCode = new QRious({
+        element: document.getElementById('js_QrCode'),
+        value:EmpNumber,
+        size: 170,
       });
-      // End click
+      // End Qr creation
+
+      // Change btn text
+      Item.text("Download Qr Code");
+
+      // Remove download attr. and clear href attr
+      Item.removeAttr('download').attr('href','#!');;
+
+      // Display canvas.
+      $("#js_QrCode").show();
+
+    }else {
+
+      // Generates a vaalid img path
+      ImgPath=QrCode.toDataURL('image/jpeg');
+
+      // Add download attr and add the img pathin href attr. to allow downlad the qr code
+      Item.attr('download',EmName).attr('href',ImgPath);
+
+      // Change Btn Text
+      Item.text("Create QrCode");
+
+      // Hide canvas.
+      $("#js_QrCode").hide();
+
+    }
+    // End Validation
+
+
+  });
+  // End click
+
+  $("#js_Edit").click(function () {
+
+    // Remove dissable attr to allow edit employee info
+    $(".js_EmpInfoForm").find('input').removeAttr("disabled");
+
+    // Remove disable attr from select tag
+    $("#js_RolesId").removeAttr("disabled");
+
+    // Enable Save btn
+    $("#js_ModifyEmpInfo").removeAttr("disabled");
+
+  });
+  // End Click
+
+  $("#js_Delete").click(function () {
+
+    // Get Employee id
+    EMployeId
+
+    alert("Employee id is: "+EMployeId+ " this employee will be deleted");
+
+
+  });
+  // End click
 
 
 });
