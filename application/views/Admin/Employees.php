@@ -84,19 +84,18 @@
         <h4>Employee Information</h4>
 
         <!-- Start Edit Options -->
-
         <a class="dropdown-button btn" data-activates='EmpOptions'>
           <i class="material-icons">&#xE8B8;</i>
         </a>
 
         <ul id="EmpOptions" class='dropdown-content'>
-          <li><a id="js_Edit" href="#">Edit</a></li>
-          <li><a id="is_Delete" href="#">Delete</a></li>
+          <li><a id="js_Edit" href="#!">Edit</a></li>
+          <li><a id="js_Delete" href="#!">Delete</a></li>
         </ul>
         <!-- End Edit Options -->
 
         <div class="row">
-          <form class="col s12">
+          <form class="col s12 js_EmpInfoForm">
 
             <div class="row ">
 
@@ -138,7 +137,7 @@
 
       </div>
       <div class="modal-footer">
-        <a id="js_ModifyEmpInfo" href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
+        <a id="js_ModifyEmpInfo" disabled href="#!" class="waves-effect waves-green btn-flat ">Save Changes</a>
         <a id="js_CreateQr" href="#!" class="waves-effect waves-green btn-flat" >Create QrCode</a>
       </div>
     </div>
