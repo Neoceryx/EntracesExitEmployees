@@ -93,6 +93,13 @@
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport\libs\js-xlsx\xlsx.core.min.js")?>"></script>
   <script type="text/javascript" src="<?=base_url("materialize\Plugins\TableExport/tableExport.js")?>"></script>
 
+  <script type="text/javascript">
+
+    // Storage the server path
+    let URL="<?=base_url('index.php/')?>"
+
+  </script>
+
   <!-- Aditional js -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Admin\EntrancesReport.js')?>"></script>
 
