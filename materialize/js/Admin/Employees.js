@@ -153,12 +153,18 @@ $(document).ready(function () {
     // disable select tag
     $("#js_RolesId").attr("disabled","disabled");
 
+    // Disable button
+    $(this).attr("disabled","disabled");
+
     // Start ajax
     $.ajax({
       type:"POST",
-      url:URL+"",
-      data:{},
-      success:function () {
+      url:URL+"EmployeeController/UpdateEmployee",
+      data:{EMPID:EMployeId, NAME:Name, FNAME:Fname, EMPNUMBER:EmpNumber, ROLEID:EmpRole},
+      success:function (data) {
+
+        // Display backend result in the dom
+        $(".js_UpdateEmpResult").html(data);
 
       },
       error:function (xhr) {
