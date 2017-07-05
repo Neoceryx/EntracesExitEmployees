@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
+  // <summary> This Script Use URL varible from the view </summary>
 
   // Emuns
   var LOGIN={ISTRUE:1, ISADMIN:1, ISNORMAL:2};
