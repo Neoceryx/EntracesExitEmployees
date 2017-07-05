@@ -36,6 +36,7 @@
           <i class="material-icons left">&#xE038;</i>
           Play
         </button>
+
         <button id="js_Stop" type="button" name="button" class="btn red waves-effect waves-light">
           <i class="material-icons left">&#xE047;</i>
           Stop
