@@ -117,6 +117,9 @@ class LoginController extends CI_Controller
     // Load the Css Files.
     $this->load->view('Template\css.php');
 
+    // Load NavBar
+    $this->load->view("Employees\NavBar");
+
     // Return View
     $this->load->view('Employees\Index.php');
 

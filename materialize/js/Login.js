@@ -62,8 +62,6 @@ $(document).ready(function () {
               // Redirect user to NormalUser view
               window.location.href=URL+"LoginController/EmployeeDashBoard";
 
-              // Display User Notification
-              // alertify.notify('Welcome Normal User', 'success', 2,);
 
             }
 
