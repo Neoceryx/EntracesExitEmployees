@@ -189,8 +189,17 @@ where (employees.Id=1);
 
 -- ===================================== Get Employee info =====================================
 
-update employees
-set NameEmp = 'Carlos'
-where(Id = 5);
+-- ===================================== Update Employee info =====================================
 
-select * from employees where (Id =5)
+-- update employee info
+UPDATE employees
+set NameEmp='Daniel', FstName='Fierro', NoEmploye='12345678', EmployeesRoles_Id=1
+WHERE (Id =1)
+
+describe employees;
+
+select * from employees;
+-- 1	Daniel	Fierro	12345678	pass	1
+-- ===================================== Update Employee info =====================================
+
+
