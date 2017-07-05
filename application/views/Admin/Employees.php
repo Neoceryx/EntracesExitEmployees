@@ -128,6 +128,9 @@
             <!-- Display backend results -->
             <div class="js_EmpInfo"></div>
 
+            <!-- Display backend result -->
+            <div class="js_UpdateEmpResult"></div>
+
             <!-- it will Display the qr generated -->
             <canvas id="js_QrCode"></canvas>
 
