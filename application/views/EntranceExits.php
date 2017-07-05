@@ -87,6 +87,13 @@
   <!-- Materialize js Files -->
   <script type="text/javascript" src="materialize\js\materialize.min.js"></script>
 
+  <script type="text/javascript">
+
+    // Storage the server path
+    let URL="<?=base_url('index.php/')?>"
+
+  </script>
+
   <!-- Aditional js -->
   <script src="materialize\js\EntrancesExtis.js" charset="utf-8"></script>
 
