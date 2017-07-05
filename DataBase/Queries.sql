@@ -202,4 +202,8 @@ select * from employees;
 -- 1	Daniel	Fierro	12345678	pass	1
 -- ===================================== Update Employee info =====================================
 
+delete from employees where(Id = 7)
+
+-- restart autoincrement to number 6
+ALTER TABLE employees AUTO_INCREMENT = 6
 
