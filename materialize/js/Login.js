@@ -28,7 +28,7 @@ $(document).ready(function () {
         // Display backend result on the DOM
         $(".Js_LgnResult").html(data).hide();
 
-        // Get Login val. Bolean. Parse string to a number
+        // Get Login val. Bolean.
         var LoginVal= $(".Js_LgnResult").text();
 
         // Separate LiginValues
