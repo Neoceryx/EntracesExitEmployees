@@ -75,6 +75,13 @@
   <!-- Alertfy js -->
   <script src="<?=base_url("materialize\Plugins\alertifyjs\alertify.min.js")?>"></script>
 
+  <script type="text/javascript">
+
+    // Storage the server path
+    let URL="<?=base_url('index.php/')?>"
+
+  </script>
+
   <!-- Adtional Js -->
   <script type="text/javascript" src="<?=base_url("materialize\js\Admin\NewEmployee.js")?>"></script>
 

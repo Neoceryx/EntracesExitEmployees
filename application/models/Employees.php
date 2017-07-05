@@ -138,6 +138,22 @@ class Employees extends CI_Model
   }
   // End function
 
+  public function UpdtaeEmployee($EmpId, $EmpName, $EmpSurname, $EmpNumber, $RoleId)
+  {
+
+    // Builf the query
+    $this->db->set("NameEmp", $EmpName);
+    $this->db->set("FstName", $EmpSurname);
+    $this->db->set("NoEmploye", $EmpNumber);
+    $this->db->set("EmployeesRoles_Id", $RoleId);
+    $this->db->where("Id", $EmpId);
+
+    // Executes the query
+    $this->db->update("employees");
+
+  }
+  // End function
+
 }
 // End class
 

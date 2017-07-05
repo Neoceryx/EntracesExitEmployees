@@ -78,6 +78,13 @@
   <!-- Materialize js Files -->
   <script type="text/javascript" src="<?=base_url('materialize\js\materialize.min.js')?>"></script>
 
+  <script type="text/javascript">
+
+    // Store the base path server
+    var URL="<?=base_url('index.php/')?>";
+
+  </script>
+
   <!-- Aditional js -->
   <script type="text/javascript" src="<?=base_url('materialize\js\Admin\Index.js')?>"></script>
 

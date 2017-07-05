@@ -284,6 +284,36 @@ class EmployeeController extends CI_Controller
    echo json_encode ($query->result());
 
   }
+  // End function
+
+  public function UpdateEmployee()
+  {
+
+    // Get Employe id
+    $EmpId=$this->input->post("EMPID");
+
+    // Get Employee name from ajax call
+    $EmpName=$this->input->post("NAME");
+
+    // Get Employee Surname
+    $EmpSurname=$this->input->post("FNAME");
+
+    // Get EmpNumber
+    $EmpNumber=$this->input->post("EMPNUMBER");
+
+    // Get EmpRole Id
+    $RoleId=$this->input->post("ROLEID");
+
+    // echo $EmpId." : ".$EmpName." :: ". $EmpSurname." :: ".$EmpNumber." :: ".$RoleId;
+
+    // Load the model
+    $this->load->model("employees");
+
+    // Acces to UpdateEmployee Method
+    $this->employees->UpdtaeEmployee($EmpId, $EmpName, $EmpSurname, $EmpNumber, $RoleId);
+
+  }
+  // End function
 
 }
 // End Class

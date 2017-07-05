@@ -1,11 +1,9 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
+  // <summary> This Script Use URL varible from the view </summary>
 
   // Constant
   let YES=1;
-
 
   // Validate From
   $("#js_FormRegEmp").validate({

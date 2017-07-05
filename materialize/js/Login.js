@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
+  // <summary> This Script Use URL varible from the view </summary>
 
   // Emuns
   var LOGIN={ISTRUE:1, ISADMIN:1, ISNORMAL:2};
@@ -29,7 +28,7 @@ $(document).ready(function () {
         // Display backend result on the DOM
         $(".Js_LgnResult").html(data).hide();
 
-        // Get Login val. Bolean. Parse string to a number
+        // Get Login val. Bolean.
         var LoginVal= $(".Js_LgnResult").text();
 
         // Separate LiginValues
@@ -61,9 +60,8 @@ $(document).ready(function () {
             if (LoginValSeparated[LOGINARRAY.SES] == LOGIN.ISTRUE && LoginValSeparated[LOGINARRAY.EMPPART]==LOGIN.ISNORMAL) {
 
               // Redirect user to NormalUser view
+              window.location.href=URL+"LoginController/EmployeeDashBoard";
 
-              // Display User Notification
-              alertify.notify('Welcome Normal User', 'success', 2,);
 
             }
 

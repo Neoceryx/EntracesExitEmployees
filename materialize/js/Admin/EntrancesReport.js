@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
-
+  // <summary> This Script Use URL varible from the view </summary>
 
   // Search Employe
   $("#js_Srch").click(function () {

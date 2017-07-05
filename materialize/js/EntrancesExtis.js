@@ -1,7 +1,6 @@
 $(document).ready(function () {
 
-  // Set the main path on the server
-  let URL="http://localhost/EntracesExitEmployees/index.php/"
+  // <summary> This Script Use URL varible from the view </summary>
 
   // Display the Entrances and Exits Employees
   GetCurrentEntrancesExits();

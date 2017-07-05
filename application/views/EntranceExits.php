@@ -36,6 +36,7 @@
           <i class="material-icons left">&#xE038;</i>
           Play
         </button>
+
         <button id="js_Stop" type="button" name="button" class="btn red waves-effect waves-light">
           <i class="material-icons left">&#xE047;</i>
           Stop
@@ -86,6 +87,13 @@
 
   <!-- Materialize js Files -->
   <script type="text/javascript" src="materialize\js\materialize.min.js"></script>
+
+  <script type="text/javascript">
+
+    // Storage the server path
+    let URL="<?=base_url('index.php/')?>"
+
+  </script>
 
   <!-- Aditional js -->
   <script src="materialize\js\EntrancesExtis.js" charset="utf-8"></script>
