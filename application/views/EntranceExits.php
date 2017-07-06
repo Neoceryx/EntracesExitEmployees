@@ -25,8 +25,6 @@
     <!-- End Navbar -->
 
     <h3 class="center-align">Shift Entrances and exits</h3>
-    <!-- <a href="<?=site_url('EmployeeController/test/123')?>">TesMethod</a> -->
-
 
     <div class="row">
 

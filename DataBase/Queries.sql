@@ -202,8 +202,27 @@ select * from employees;
 -- 1	Daniel	Fierro	12345678	pass	1
 -- ===================================== Update Employee info =====================================
 
-delete from employees where(Id = 7)
+-- ===================================== Permisons types =====================================
+-- Permisons catalog table
+select * from permisontypes;
 
--- restart autoincrement to number 6
-ALTER TABLE employees AUTO_INCREMENT = 6
+describe permisontypes;
+
+-- add more permison types
+insert into permisontypes (Description)
+values ('Baño'), ('RH'), ('Enfermeria'), ('Comer'), ('Otros');
+
+-- get all prudiction permisons types
+select Id, description from permisontypes;
+
+
+-- add permison to an employee
+select * from permisons;
+
+-- ===================================== Permisons types =====================================
+
+SHOW CREATE TABLE permisons;
+
+-- Get foreign keys from an specific table
+SHOW INDEXES IN permisons
 

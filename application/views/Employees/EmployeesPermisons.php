@@ -2,11 +2,20 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Productions Permisons</title>
   </head>
   <body>
 
-    <h4>Normal Employee View</h4>
+    <!-- Start  -->
+    <div class="row">
+
+    </div>
+
+
+    <h3 class="center-align">Production Permisons</h3>
+
+
+
 
   </body>
 
@@ -25,6 +34,9 @@
     let URL="<?=base_url('index.php/')?>"
 
   </script>
+
+  <!-- Aditional js -->
+  <script type="text/javascript" src="<?=base_url('materialize\js\Employees\Production.js')?>"></script>
 
 
 </html>
