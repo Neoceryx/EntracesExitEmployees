@@ -14,6 +14,18 @@
 
     <h3 class="center-align">Production Permisons</h3>
 
+    <!-- Display backend results -->
+    <?php foreach ($PermisonsTypes->result() as $row) {  ?>
+
+      <p class="js_a"> <?=$row->Id. " :: ". $row->Description ?> </p>
+
+    <?php } ?>
+    <!-- End foreach -->
+
+
+
+
+
 
 
 

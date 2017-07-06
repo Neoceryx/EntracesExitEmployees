@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-  alert("Hi from Production.js");
+  $(".js_a").click(function () {
+    alert("HOLA element has been pressed");
+  });
 
 });
 // End Scoope
