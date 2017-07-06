@@ -218,11 +218,13 @@ select Id, description from permisontypes;
 
 -- add permison to an employee
 select * from permisons;
+describe permisons;
+
+insert into permisons values (1,1), (1,2), (2,3);
+
+-- Get Production permisons employees
+select employees.NameEmp, employees.FstName, employees.NoEmploye, permisontypes.Description as 'Permison to'  from permisons
+inner join employees on ( Employees_Id= employees.Id )
+inner join permisontypes on ( PermisonTypes_Id=permisontypes.Id ) ;
 
 -- ===================================== Permisons types =====================================
-
-SHOW CREATE TABLE permisons;
-
--- Get foreign keys from an specific table
-SHOW INDEXES IN permisons
-
