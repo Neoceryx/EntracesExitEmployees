@@ -3,21 +3,41 @@ $(document).ready(function () {
   // it will be Storage the permison id seleted by the user
   var PermsId=0;
 
+  var Desc="";
+
   $(".js_Permison").click(function () {
 
     // Get Permison id
     var PermId=$(this).data("permid");
 
     PermsId= PermId;
-    alert(PermId);
 
-    // Add fadeIn effect 
-    $("canvas").fadeIn("slow",function () {
+    // Validate type permison seleted
+    if (PermsId == 5) {
+
+      // Open modal
+      $('#modal1').modal('open');
+
+      $("#js_DescBtn").click(function () {
+
+        // Get Description
+        Desc=$("#js_desc").val();
+
+        // Reset Form
+        $('#js_DescFrom')[0].reset();
 
         // Turn on the web camera and Send Arg to will be decode
         $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
 
       });
+      // End click
+
+    }else {
+
+      // Turn on the web camera and Send Arg to will be decode
+      $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
+
+    }
 
   });
 
@@ -40,13 +60,8 @@ $(document).ready(function () {
           alertify.set('notifier','position', 'top-left');
           alertify.success('Code Scanned '+Content +" Permison selected: "+PermsId , alertify.get('notifier','position'));
 
-          // Add fadeOut effetc to canvas
-          $("canvas").fadeOut("slow",function () {
-
-            // Turn Off camera
-            $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.stop();
-
-          });
+          // Turn Off camera
+          $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.stop();
 
           { /* Region CallBack */
 
@@ -55,11 +70,14 @@ $(document).ready(function () {
               $.ajax({
                 type:"POST",
                 url:URL+"PermisonsController/RegiterPermison",
-                data:{PERMID:PermsId, EMNUMBER:Content},
+                data:{PERMID:PermsId, EMNUMBER:Content, DESC:Desc},
                 success:function (data) {
 
                   // Display backend result in the dom
                   $(".js_Permresult").html(data);
+
+                  // Clear Desc Val
+                  Desc="";
 
                 },
                 error:function (hrx) {

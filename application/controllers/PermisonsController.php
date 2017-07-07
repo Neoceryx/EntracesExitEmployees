@@ -35,10 +35,13 @@ class PermisonsController extends CI_Controller
     // Get Employee number from ajax call
     $EmpNumber=$this->input->post("EMNUMBER");
 
+    // Get Description from ajax call
+    $Desc=$this->input->post("DESC");
+
     // Variables
     $EmpId=0;
 
-    // echo $PerId. " :: ". $EmpNumber;
+    // echo $PerId. " :: ". $EmpNumber." :: ".$Desc;
 
     { /* Region Get EmployeId by EmpNumber */
 
@@ -66,7 +69,7 @@ class PermisonsController extends CI_Controller
       $Data = array(
         'Employees_Id' => $EmpId,
         'PermisonTypes_Id' => $PerId,
-        'Description' =>'asd' ,
+        'Description' => $Desc,
         'StartDate' => $CurrentDate,
         'EndDate' => '',
       );

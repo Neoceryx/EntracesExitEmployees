@@ -116,6 +116,29 @@
 
       </div>
 
+      <!-- Start Modal -->
+      <div id="modal1" class="modal">
+        <div class="modal-content">
+
+          <div class="row">
+            <form id="js_DescFrom" class="col s12">
+              <div class="row">
+
+                <div class="input-field col s12">
+                  <textarea id="js_desc" class="materialize-textarea"></textarea>
+                  <label for="textarea1">Description</label>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <a id="js_DescBtn" href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+        </div>
+      </div>
+      <!-- End Modal -->
 
 
     </div>
