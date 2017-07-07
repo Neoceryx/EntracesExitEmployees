@@ -39,18 +39,19 @@ foreign key (Employees_Id) references Employees (Id)
 create table PermisonTypes
 (
 Id int auto_increment primary key,
-Description varchar(25),
-StartDate datetime not null,
-EndDate datetime not null
+Description varchar(25)
 );
 
 Create table Permisons
 (
 Employees_Id int,
 PermisonTypes_Id int,
+StartDate datetime not null,
+EndDate datetime not null,
 
 -- Foreign Keys
 foreign key (Employees_Id) references Employees (Id),
 foreign key (PermisonTypes_Id) references PermisonTypes(Id)
 
 );
+
