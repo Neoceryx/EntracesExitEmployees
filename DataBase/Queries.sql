@@ -210,7 +210,13 @@ describe permisontypes;
 
 -- add more permison types
 insert into permisontypes (Description)
-values ('Baño'), ('RH'), ('Enfermeria'), ('Comer'), ('Otros');
+values ('Baño'), ('Comer') , ('RH'), ('Enfermeria') , ('Otros');
+
+delete from permisontypes where (Id between 1 and 10)
+
+-- reset autoincrement
+ALTER TABLE permisontypes AUTO_INCREMENT = 1
+
 
 -- get all prudiction permisons types
 select Id, description from permisontypes;
