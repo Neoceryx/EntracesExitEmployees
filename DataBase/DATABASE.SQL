@@ -46,12 +46,14 @@ Create table Permisons
 (
 Employees_Id int,
 PermisonTypes_Id int,
+Description varchar(50),
 StartDate datetime not null,
-EndDate datetime not null,
+EndDate datetime,
 
 -- Foreign Keys
 foreign key (Employees_Id) references Employees (Id),
 foreign key (PermisonTypes_Id) references PermisonTypes(Id)
 
 );
+
 
