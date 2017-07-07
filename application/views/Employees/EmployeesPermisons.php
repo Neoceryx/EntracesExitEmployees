@@ -24,7 +24,7 @@
       <?php foreach ($PermisonsTypes->result() as $row) {  ?>
 
         <!-- Start Permison type card -->
-        <div class="col s12 m2 js_a"  data-permd="<?=$row->Id?>">
+        <div class="col s12 m2 js_Permison"  data-permid="<?=$row->Id?>">
           <div class="card-panel teal">
 
             <?php

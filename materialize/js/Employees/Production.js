@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
-  $(".js_a").click(function () {
-    alert("HOLA element has been pressed");
+  $(".js_Permison").click(function () {
+
+    // Get Permison id
+    var PermId=$(this).data("permid");
+    alert(PermId);
+
   });
 
 });
