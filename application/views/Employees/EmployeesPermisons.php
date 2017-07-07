@@ -100,28 +100,11 @@
       <!-- Start Web Cam container -->
       <div class="col s12 m5">
 
-        <!-- Start web cam controlls -->
-        <div>
-
-          <button id="js_Play"type="button" name="button" class="btn waves-effect waves-light">
-            <i class="material-icons left">&#xE038;</i>
-            Play
-          </button>
-
-          <button id="js_Stop" type="button" name="button" class="btn red waves-effect waves-light">
-            <i class="material-icons left">&#xE047;</i>
-            Stop
-          </button>
-
-        </div>
-        <!-- End web cam controlls -->
-
+        <!-- Display bckend result -->
+        <div class="js_Permresult"></div>
 
         <!-- Web Cam Decoder -->
         <canvas style="margin-top:2%"></canvas>
-
-        <!-- Display the code val decoded -->
-        <div id="js_Coderesult"></div>
 
       </div>
       <!-- Start Web Cam container -->
