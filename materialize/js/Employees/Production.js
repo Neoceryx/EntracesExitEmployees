@@ -1,14 +1,23 @@
 $(document).ready(function () {
 
+  // it will be Storage the permison id seleted by the user
+  var PermsId=0;
+
   $(".js_Permison").click(function () {
 
     // Get Permison id
     var PermId=$(this).data("permid");
+
+    PermsId= PermId;
     alert(PermId);
 
-    // Turn on the web camera and Send Arg to will be decode
-    $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
+    // Add fadeIn effect 
+    $("canvas").fadeIn("slow",function () {
 
+        // Turn on the web camera and Send Arg to will be decode
+        $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
+
+      });
 
   });
 
@@ -19,47 +28,57 @@ $(document).ready(function () {
 
         resultFunction: function(result) {
 
-          // decode code info
+          // decode Code type (Qr or Barcode etc)
           var Codetype=result.format;
 
-          // Code type QR or Bar Code
+          // Decode Qr code content
           var Content=result.code;
 
-          // it place the decode val and the code type on the dom
-          $('#js_Coderesult').text( Codetype + ': ' + Content );
+          // alert(Codetype + ': ' + Content);
 
           // Display notification
           alertify.set('notifier','position', 'top-left');
-          alertify.success('Code Scanned ', alertify.get('notifier','position'));
+          alertify.success('Code Scanned '+Content +" Permison selected: "+PermsId , alertify.get('notifier','position'));
 
+          // Add fadeOut effetc to canvas
+          $("canvas").fadeOut("slow",function () {
 
-          // #.... Call Back code
+            // Turn Off camera
+            $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.stop();
+
+          });
+
+          { /* Region CallBack */
+
+            { /* Region Register Permison */
+
+              $.ajax({
+                type:"POST",
+                url:URL+"PermisonsController/RegiterPermison",
+                data:{PERMID:PermsId, EMNUMBER:Content},
+                success:function (data) {
+
+                  // Display backend result in the dom
+                  $(".js_Permresult").html(data);
+
+                },
+                error:function (hrx) {
+                  alert("An error Ocurred. "+ hrx.responseText);
+                  console.log(hrx.responseText);
+                }
+
+              });
+              // End ajax
+
+            } /* End Region  */
+
+          } /* End Region */
 
         }
         // End resultFunction
 
       };
       // End rgs
-
-  } /* End Region */
-
-  { /* Region Web Cam controlls */
-
-    // Turn Off.
-    $("#js_Stop").click(function () {
-
-      // Turn Off camera
-      $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.stop();
-
-    });
-
-    $("#js_Play").click(function () {
-
-      // Turn on the web camera and Send Arg to will be decode
-      $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
-
-    });
-
 
   } /* End Region */
 
