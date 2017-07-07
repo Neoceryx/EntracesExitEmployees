@@ -16,6 +16,7 @@ class EmployeeController extends CI_Controller
     $this->load->view('EntranceExits');
 
   }
+  // End function
 
   public function CurrentEntrancesExitReport()
   {
@@ -43,6 +44,7 @@ class EmployeeController extends CI_Controller
     }
 
   }
+  // End function
 
   public function RegisterEntrance()
   {
@@ -128,6 +130,7 @@ class EmployeeController extends CI_Controller
 
 
   }
+  // End function
 
   public function EntranceReport()
   {
@@ -141,6 +144,7 @@ class EmployeeController extends CI_Controller
     $this->load->view("Admin\EntrancesReport");
 
   }
+  // End function
 
   public function GetEntrancesReportByDateRange()
   {
@@ -175,7 +179,7 @@ class EmployeeController extends CI_Controller
     // End Foreach
 
   }
-  // End Function
+  // End function
 
   public function NewEmployee()
   {
