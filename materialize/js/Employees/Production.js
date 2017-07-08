@@ -10,6 +10,7 @@ $(document).ready(function () {
     // Get Permison id
     var PermId=$(this).data("permid");
 
+    // Store the permid into PermId
     PermsId= PermId;
 
     // Validate type permison seleted
@@ -23,8 +24,8 @@ $(document).ready(function () {
         // Get Description
         Desc=$("#js_desc").val();
 
-        // Reset Form
-        $('#js_DescFrom')[0].reset();
+        // Clear from
+        $("#js_DescFrom")[0].reset();
 
         // Turn on the web camera and Send Arg to will be decode
         $("canvas").WebCodeCamJQuery(arg).data().plugin_WebCodeCamJQuery.play();
@@ -76,8 +77,9 @@ $(document).ready(function () {
                   // Display backend result in the dom
                   $(".js_Permresult").html(data);
 
+
                   // Clear Desc Val
-                  Desc="";
+                  // Desc="";
 
                 },
                 error:function (hrx) {

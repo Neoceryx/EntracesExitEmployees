@@ -65,6 +65,13 @@ class PermisonsController extends CI_Controller
       // Get the current date
       $CurrentDate = date('Y-m-d H:i:s');
 
+      // validate permison type
+      if ($PerId != 5 ) {
+
+        // Clear Description for the rest permison types
+        $Desc="";
+      }
+
       // Assosiative array
       $Data = array(
         'Employees_Id' => $EmpId,
@@ -76,8 +83,6 @@ class PermisonsController extends CI_Controller
 
       // Build the query
       $this->db->insert('permisons',$Data);
-
-
 
     } /* End Region */
 
